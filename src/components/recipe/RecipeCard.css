@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+
+.recipe-page-title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 70px
+}
+
+.recipeButton {
+    display: flex;
+    justify-content: center;
+}
+.addRecipe {
+    border-radius: 10px
+}
+
+.deleteRecipeButton {
+    border-radius: 7px
+}
+
+.editRecipeButton {
+    border-radius: 7px
+}
+
+.recipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px
+}
+
+.recipe-card-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px
+}
+
+.recipe-card-image {
+    height: 100px;
+    width: 100px;
+    margin: 20px
+}
+
+.recipe-card-description {
+    height: 80px;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}

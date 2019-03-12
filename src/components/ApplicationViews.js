@@ -49,19 +49,19 @@ class ApplicationViews extends Component {
           />
         }} />
 
-        <Route path="/recipes/new" render={(props) => {
+        <Route exact path="/recipes/new" render={(props) => {
           return <RecipeForm {...props}
             addRecipe={this.addRecipe}
           />
         }} />
 
-        <Route path="/recipes/:recipeId(\d+)/edit" render={props => {
+        <Route exact path="/recipes/:recipeId(\d+)/edit" render={props => {
           return <RecipeEditForm   {...props}
             recipes={this.state.recipes}
             editRecipe={this.editRecipe}
           />
         }} />
-        <Route path="/recipes/:recipesId(\d+)" render={(props) => {
+        <Route exact path="/recipes/:recipeId(\d+)" render={(props) => {
           return <RecipeDetail {...props} recipes={this.state.recipes} />
         }} />
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import beer from '../auth/beerCartoon.jpg'
 
 
 
@@ -39,6 +40,7 @@ export default class RecipeForm extends Component {
     return (
       <React.Fragment>
         <form className="recipeForm">
+        <img src={beer} className="recipe-card-image" alt="beer" />
           <div className="form-group">
             <label htmlFor="name">Recipe name</label>
             <input

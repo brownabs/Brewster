@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
-import beer from '../auth/beerCartoon.jpg'
 import "./nav.css"
 class Nav extends Component {
   logout = () => {
@@ -14,20 +13,19 @@ class Nav extends Component {
       <div className="outerNav">
       <nav className="navbar  navbar-dark bg-dark fixed-top light-blue flex-md-nowrap p-0 shadow">
         <ul className="nav nav-pills">
-        <img src={beer} className="navImage" alt="beer" />
           <li className="nav-item">
             <Link className="nav-link" to="/">
               <h5>Brewster</h5>
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/recipes">Recipes</Link>
+            <Link className="nav-link" to="/brewday">Brew Day</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/inprogress">In Progress</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/completedbatches">Completed</Link>
+            <Link className="nav-link" to="/completed">Completed</Link>
           </li>
         </ul>
         <h5 className="navUser">Welcome{this.props.activeUser.username}</h5>
