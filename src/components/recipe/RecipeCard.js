@@ -16,7 +16,7 @@ export default class Recipe extends Component {
                         <img src={beer} className="recipe-card-image" alt="beer" />
                             <h4 className="recipe-card-name">{this.props.recipe.name}</h4>
                             <h6 className="recipe-card-description">{this.props.recipe.description}</h6>
-                            <Link className="recipe-nav-link" to={`/recipes/${this.props.recipe.id}`}>
+                            <Link className="recipe-nav-link text-dark" to={`/recipes/${this.props.recipe.id}`}>
                                 <h5 className="recipe-detail-button">Read More...</h5></Link>
                             <button
                                 onClick={() => this.props.deleteRecipe(this.props.recipe.id)}

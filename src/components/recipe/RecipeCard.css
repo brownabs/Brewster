@@ -16,11 +16,13 @@
 }
 
 .deleteRecipeButton {
-    border-radius: 7px
+    border-radius: 7px;
+    margin: 2px
 }
 
 .editRecipeButton {
-    border-radius: 7px
+    border-radius: 7px;
+    margin: 2px
 }
 
 .recipes {
@@ -38,7 +40,8 @@
     align-items: center;
     padding: 10px;
     border: 1px solid black;
-    margin: 10px
+    margin: 10px;
+    box-shadow:  5px 5px 5px rgba(85, 16, 16, 0.7)
 }
 
 .recipe-card-image {
@@ -52,5 +55,6 @@
     width: 320px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin: 5px
 }

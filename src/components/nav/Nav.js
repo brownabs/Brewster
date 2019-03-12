@@ -14,21 +14,21 @@ class Nav extends Component {
       <nav className="navbar  navbar-dark bg-dark fixed-top light-blue flex-md-nowrap p-0 shadow">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link text-white" to="/">
               <h5>Brewster</h5>
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/brewday">Brew Day</Link>
+            <Link className="nav-link text-white" to="/brewday">Brew Day</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/inprogress">In Progress</Link>
+            <Link className="nav-link text-white" to="/inprogress">In Progress</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/completed">Completed</Link>
+            <Link className="nav-link text-white" to="/completed">Completed</Link>
           </li>
         </ul>
-        <h5 className="navUser">Welcome{this.props.activeUser.username}</h5>
+        <h5 className="navUser">Welcome {this.props.activeUser.username}</h5>
         <button
           type="button"
           className="logoutButton"
