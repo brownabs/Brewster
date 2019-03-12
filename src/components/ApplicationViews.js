@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Route } from "react-router-dom"
 import UserManager from "../modules/UserManager"
 
 class ApplicationViews extends Component {

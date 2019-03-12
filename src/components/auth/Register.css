@@ -1,0 +1,65 @@
+.registerForm {
+    margin: 20px;
+    padding: 10px;
+    border: 1px brown solid;
+    background-color:  #F3C473;
+    border-radius: 10px;
+    box-shadow: 10px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+
+
+}
+
+.registerPageTitle {
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Fredericka the Great', cursive;
+
+}
+.registerLandingPage {
+    margin: 50px;
+    border: 10px solid #4C3206;
+    background-color: #F7E7A7
+ }
+ 
+ .registerInnerLandingPage {
+     background-color: brown;
+     display: flex;
+     justify-content: center;
+     flex-direction: row;
+     align-items: center;
+     margin: 20px;
+     border-radius: 10px
+ }
+ 
+.first_name {
+    border: 1px brown solid;
+    border-radius: 10px;
+    margin: 5px
+}
+
+.last_name {
+    border: 1px brown solid;
+    border-radius: 10px;
+    margin: 5px
+}
+
+.email {
+    border: 1px brown solid;
+    border-radius: 10px;
+    margin: 5px
+}  
+
+
+.registerIconBeer {
+    height: 306px;
+    width: 222px;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 5px 5px;
+}
