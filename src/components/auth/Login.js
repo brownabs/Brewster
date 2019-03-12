@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import "./login.css"
 import UserManager from "../../modules/UserManager"
-import beer from './beerCartoon.jpg'
+// import beer from './beerCartoon.jpg'
+import beer from './beer.jpeg'
 import './login.css'
 import { Link } from "react-router-dom"
 

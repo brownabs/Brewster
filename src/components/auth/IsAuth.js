@@ -20,7 +20,7 @@ class IsAuth extends Component {
 
 
           )} <Route exact path='/register' render={(props) => {
-            return <Register {...this.props} />
+            return <Register {...props} {...this.props} />
           }} />
 
       </React.Fragment>
