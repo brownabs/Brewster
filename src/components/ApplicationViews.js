@@ -6,12 +6,15 @@ import RecipeList from './recipe/RecipeList'
 import RecipeForm from './recipe/RecipeForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
 import RecipeDetail from './recipe/RecipeDetail'
+// import Timer from './recipe/Timer'
+import BDRecipeDetail from './recipe/BDRecipeDetail'
 
 class ApplicationViews extends Component {
 
   state = {
     users: [],
-    recipes: []
+    recipes: [],
+    batches: []
   }
 
   addRecipe = recipe =>
@@ -34,10 +37,16 @@ class ApplicationViews extends Component {
       .then(recipes => this.setState({ recipes: recipes }));
   };
 
+  addBatch = task =>
+  BatchManager.post(task)
+    .then(() => BatchManager.getAll())
+    .then(batches => this.setState({ batches: batches }));
+
   componentDidMount() {
     UserManager.getAll().then(users => this.setState({ users: users }))
 
     RecipeManager.getAll().then(recipes => this.setState({ recipes: recipes }));
+
   }
   render() {
     return (
@@ -65,6 +74,24 @@ class ApplicationViews extends Component {
           return <RecipeDetail {...props} recipes={this.state.recipes} />
         }} />
 
+
+        <Route exact path="/brewday/:recipeId(\d+)" render={(props) => {
+          return <BDRecipeDetail {...props} recipes={this.state.recipes}
+          batches={this.state.batches}
+          addBatch={this.state.addBatch}
+          />
+        }} />
+
+        {/* <Route exact path="/brewday/:recipeId(\d+)" render={(props) => {
+          // return <Timer {...props} 
+          // />
+        }} /> */}
+       <Route exact path="/inprogress" render={(props) => {
+          return <RecipeList {...props} batches={this.state.batches}
+          addBatch={this.state.addBatch}
+
+          />
+        }} />
 
 
       </React.Fragment>

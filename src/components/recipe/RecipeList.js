@@ -32,6 +32,7 @@ export default class RecipeList extends Component {
                                     {...this.props} users={this.props.users}
                                     deleteRecipe={this.props.deleteRecipe}
                                     editRecipe={this.props.editRecipe}
+                                    addBatch={this.props.addBatch}
                                     history={this.props.history} />
                             </div>
 
