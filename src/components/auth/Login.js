@@ -1,8 +1,11 @@
 import React, { Component } from "react"
 import "./login.css"
 import UserManager from "../../modules/UserManager"
-import beer from './beerCartoon.jpg'
+// import beer from './beerCartoon.jpg'
+import beer from './beer.jpeg'
 import './login.css'
+import { Link } from "react-router-dom"
+
 
 
 export default class Login extends Component {
@@ -21,30 +24,7 @@ export default class Login extends Component {
     this.setState(stateToChange)
   }
 
-  handleRegister = e => {
-    e.preventDefault()
-    const newUser = {
-      username: this.state.username,
-      password: this.state.password,
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email
-    }
-    if (this.state.username && this.state.password) {
-      UserManager.searchUsername(this.state.username).then(users => {
-        if (users.length) {
-          alert(`Username ${this.state.username} already exits!`)
-        } else {
-          UserManager.addUser(newUser).then(user => {
-            sessionStorage.setItem("credentials", parseInt(user.id))
-            this.props.setAuth()
-          })
-        }
-      })
-    } else {
-      alert("Please Fill Out Form 😬!")
-    }
-  }
+
 
   handleLogin = e => {
     e.preventDefault()
@@ -69,16 +49,16 @@ export default class Login extends Component {
       <div className="landingPage">
       <p className="pageTitle">Brewster</p>
       <div className="innerLandingPage">
-        <div class="bubble x1"></div>
-        <div class="bubble x2"></div>
-        <div class="bubble x3"></div>
-        <div class="bubble x4"></div>
-        <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-        <div class="bubble x10"></div>
+        <div className="bubble x1"></div>
+        <div className="bubble x2"></div>
+        <div className="bubble x3"></div>
+        <div className="bubble x4"></div>
+        <div className="bubble x5"></div>
+        <div className="bubble x6"></div>
+        <div className="bubble x7"></div>
+        <div className="bubble x8"></div>
+        <div className="bubble x9"></div>
+        <div className="bubble x10"></div>
       <div className="loginFormContainer">
       <form className="loginForm">
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -102,9 +82,9 @@ export default class Login extends Component {
         <button type="submit" className="submit" onClick={this.handleLogin}>
           Sign in
         </button>
-        <button type="submit" className="submit" onClick={this.handleRegister}>
-          Register
-        </button>
+        <Link to="/register">
+        <button type="submit" className="submit">Register</button>
+        </Link> 
       </form>
       </div>
       <img src={beer} className="icon--beer" alt="beer" />
