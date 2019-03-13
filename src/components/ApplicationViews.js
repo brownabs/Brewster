@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { Route } from 'react-router-dom'
-import UserManager from "../modules/UserManager"
-import RecipeManager from "../modules/RecipeManager";
+import UserManager from '../modules/UserManager'
+import RecipeManager from '../modules/RecipeManager'
+import BatchManager from '../modules/BatchManager'
 import RecipeList from './recipe/RecipeList'
 import RecipeForm from './recipe/RecipeForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
@@ -37,8 +38,8 @@ class ApplicationViews extends Component {
       .then(recipes => this.setState({ recipes: recipes }));
   };
 
-  addBatch = task =>
-  BatchManager.post(task)
+  addBatch = batch =>
+  BatchManager.post(batch)
     .then(() => BatchManager.getAll())
     .then(batches => this.setState({ batches: batches }));
 
@@ -55,6 +56,7 @@ class ApplicationViews extends Component {
           return <RecipeList {...props} recipes={this.state.recipes}
             deleteRecipe={this.deleteRecipe}
             editRecipe={this.editRecipe}
+            // addBatch={this.addBatch}
           />
         }} />
 
@@ -71,24 +73,23 @@ class ApplicationViews extends Component {
           />
         }} />
         <Route exact path="/recipes/:recipeId(\d+)" render={(props) => {
-          return <RecipeDetail {...props} recipes={this.state.recipes} />
+          return <RecipeDetail {...props} recipes={this.state.recipes}  
+          
+
+       />
         }} />
 
 
         <Route exact path="/brewday/:recipeId(\d+)" render={(props) => {
           return <BDRecipeDetail {...props} recipes={this.state.recipes}
           batches={this.state.batches}
-          addBatch={this.state.addBatch}
+          addBatch={this.addBatch}
           />
         }} />
 
-        {/* <Route exact path="/brewday/:recipeId(\d+)" render={(props) => {
-          // return <Timer {...props} 
-          // />
-        }} /> */}
        <Route exact path="/inprogress" render={(props) => {
           return <RecipeList {...props} batches={this.state.batches}
-          addBatch={this.state.addBatch}
+          addBatch={this.addBatch}
 
           />
         }} />
