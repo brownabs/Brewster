@@ -8,6 +8,8 @@ class Nav extends Component {
     this.props.setAuth()
   }
 
+  //import withRouter
+  
   render() {
     return (
       <div className="outerNav">

@@ -32,13 +32,14 @@ export default class BDRecipeDetail extends Component {
             userId: this.state.userId,
             recipeId: this.state.recipeId,
             startDate: moment().format('LLL'),
-            endDate: this.state.endDate
+            endDate: moment().format('LLL')
 
         }
 
         this.props.addBatch(batch)
         .then(() => this.props.history.push("/batches"))
-
+        
+        
     }
 
     render() {
