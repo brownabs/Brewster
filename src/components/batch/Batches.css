@@ -1,16 +1,19 @@
-.startFermentation {
-    border-radius: 5px;
-    margin: 10px;
+.batches {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px
 }
 
-.brewday-recipe-page-title {
+.batch-page-title {
     display: flex;
     justify-content: center;
     font-family: 'Fredericka the Great', cursive;
     font-size: 70px
 }
 
-.brewday-card-body {
+.batch-card-body {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -19,4 +22,10 @@
     border: 1px solid black;
     margin: 10px;
     box-shadow:  5px 5px 5px rgba(85, 16, 16, 0.7)
+}
+
+.batch-card-image {
+    height: 100px;
+    width: 100px;
+    margin: 20px
 }

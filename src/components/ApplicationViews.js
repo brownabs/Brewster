@@ -9,6 +9,7 @@ import RecipeEditForm from './recipe/RecipeEditForm'
 import RecipeDetail from './recipe/RecipeDetail'
 // import Timer from './recipe/Timer'
 import BDRecipeDetail from './recipe/BDRecipeDetail'
+import BatchList from "./batch/BatchList";
 
 class ApplicationViews extends Component {
 
@@ -48,6 +49,8 @@ class ApplicationViews extends Component {
 
     RecipeManager.getAll().then(recipes => this.setState({ recipes: recipes }));
 
+    BatchManager.getAllBatches().then(batches => this.setState({ batches : batches }));
+
   }
   render() {
     return (
@@ -56,7 +59,7 @@ class ApplicationViews extends Component {
           return <RecipeList {...props} recipes={this.state.recipes}
             deleteRecipe={this.deleteRecipe}
             editRecipe={this.editRecipe}
-            // addBatch={this.addBatch}
+           
           />
         }} />
 
@@ -87,9 +90,9 @@ class ApplicationViews extends Component {
           />
         }} />
 
-       <Route exact path="/inprogress" render={(props) => {
-          return <RecipeList {...props} batches={this.state.batches}
-          addBatch={this.addBatch}
+       <Route exact path="/batches" render={(props) => {
+          return <BatchList {...props} batches={this.state.batches}
+          addBatch={this.addBatch} recipes={this.state.recipes}
 
           />
         }} />

@@ -19,13 +19,10 @@ class Nav extends Component {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/brewday">Brew Day</Link>
+            <Link className="nav-link text-white" to="/batches">Batches In Progress</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/inprogress">In Progress</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/completed">Completed</Link>
+            <Link className="nav-link text-white" to="/completedbatches">Completed Batches</Link>
           </li>
         </ul>
         <h5 className="navUser">Welcome {this.props.activeUser.username}</h5>

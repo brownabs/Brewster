@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./RecipeCard.css"
-import beer from '../auth/beerCartoon.jpg'
+
+
 
 
 export default class RecipeDetail extends Component {
@@ -12,9 +13,9 @@ export default class RecipeDetail extends Component {
 
         return (
             <section className="recipe">
-                <div key={recipe.id} className="recipe-card">
-                    <img src={beer} className="recipe-card-image" alt="beer" />
-                    <h4 className="recipe-card-name">{recipe.name}</h4>
+                <div key={recipe.id} className="recipe-card-body">
+            
+                    <h4 className="recipe-detail-card-name">{recipe.name}</h4>
                     <h6 className="recipe-card-description">{recipe.description}</h6>
                     <h5 className="recipe-card-further-description">{recipe.beerStyle}</h5>
                     <h5 className="recipe-card-further-description">{recipe.SKU}</h5>
@@ -27,7 +28,7 @@ export default class RecipeDetail extends Component {
                     <button
                         onClick={() => this.props.history.push(`/brewday/${recipe.id}`)}
                         className="card-link">
-                        Ready To Brew🍻
+                        Ready To Brew
                     </button>
                 </div>
 
