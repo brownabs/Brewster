@@ -15,6 +15,13 @@ export default Object.create(null, {
     }
   },
 
+  getAllBatches: {
+      value: function () {
+          return fetch (`${Settings.remoteURL}/${this.desiredData}`)
+          .then(r => r.json())
+      }
+  },
+
   post: {
     value: function (obj) {
       return fetch(`${Settings.remoteURL}/${this.desiredData}`, {

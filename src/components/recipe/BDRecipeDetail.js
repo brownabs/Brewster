@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import "./RecipeCard.css"
-import beer from '../auth/beerCartoon.jpg'
+import './BDRecipeDetail.css'
+import moment from 'moment'
+
 
 
 
@@ -29,12 +31,13 @@ export default class BDRecipeDetail extends Component {
             id: this.state.id,
             userId: this.state.userId,
             recipeId: this.state.recipeId,
-            startDate: this.state.startDate,
+            startDate: moment().format('LLL'),
             endDate: this.state.endDate
 
         }
 
         this.props.addBatch(batch)
+        .then(() => this.props.history.push("/batches"))
 
     }
 
@@ -47,9 +50,10 @@ export default class BDRecipeDetail extends Component {
 
 
         return (
-            <section className="recipe">
+            <section className="brewday">
                 <div key={recipe.id} className="recipe-card">
-                    <img src={beer} className="recipe-card-image" alt="beer" />
+                <h1 className="brewday-recipe-page-title">Brew Day</h1>
+                    <div className="recipe-card-body">
                     <h4 className="recipe-card-name">{recipe.name}</h4>
                     <p className="recipe-card-description">{recipe.description}</p>
                     <h5 className="recipe-card-further-description">{recipe.beerStyle}</h5>
@@ -59,17 +63,6 @@ export default class BDRecipeDetail extends Component {
                     <h5 className="recipe-card-further-description">{recipe.timeToMake}</h5>
                     <h5 className="recipe-card-further-description">{recipe.yield}</h5>
                     <a href={recipe.recipeInstructions} className="recipe-card-further-description">{recipe.recipeInstructions}</a>
-                    <div className="dateForm">
-                        <label htmlFor="dateForm">Start Date</label>
-                        <input
-                            type="Date"
-                            required
-                            className="form-control"
-                            onChange={this.handleFieldChange}
-                            id="startDate"
-                            placeholder=" start date"
-                        />
-                    </div>
 
                     <button
                         type="submit"
@@ -78,6 +71,7 @@ export default class BDRecipeDetail extends Component {
                     >
                         Start Fermentation
                     </button>
+                    </div>
                 </div>
 
             </section>
