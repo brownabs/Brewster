@@ -1,11 +1,12 @@
 .startFermentation {
-    border-radius: 5px;
+    border-radius: 7px;
     margin: 10px;
+    box-shadow:  1px 1px 1px rgba(85, 16, 16, 0.7)
 }
 
 .brewday-recipe-page-title {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     font-family: 'Fredericka the Great', cursive;
     font-size: 70px
 }
@@ -17,6 +18,18 @@
     align-items: center;
     padding: 10px;
     border: 1px solid black;
-    margin: 10px;
     box-shadow:  5px 5px 5px rgba(85, 16, 16, 0.7)
+}
+
+.gifImage {
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+}
+
+.titleAndImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px rgba(85, 16, 16, 0.7)
 }

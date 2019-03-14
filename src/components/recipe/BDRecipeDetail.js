@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./RecipeCard.css"
 import './BDRecipeDetail.css'
 import moment from 'moment'
+import gif from './bottling-animated.gif'
 
 
 
@@ -39,7 +40,7 @@ export default class BDRecipeDetail extends Component {
         this.props.addBatch(batch)
         .then(() => this.props.history.push("/batches"))
         
-        
+
     }
 
     render() {
@@ -52,8 +53,11 @@ export default class BDRecipeDetail extends Component {
 
         return (
             <section className="brewday">
-                <div key={recipe.id} className="recipe-card">
-                <h1 className="brewday-recipe-page-title">Brew Day</h1>
+                <div className="titleAndImage">
+                <img src={gif} className="gifImage" alt="loading..." /><h1 className="brewday-recipe-page-title">Brew Day</h1>                <img src={gif} className="gifImage" alt="loading..." />
+
+                </div>
+                <div key={recipe.id} className="recipe-card">   
                     <div className="recipe-card-body">
                     <h4 className="recipe-card-name">{recipe.name}</h4>
                     <p className="recipe-card-description">{recipe.description}</p>

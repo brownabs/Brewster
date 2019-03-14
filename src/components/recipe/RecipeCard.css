@@ -12,17 +12,20 @@
     justify-content: center;
 }
 .addRecipe {
-    border-radius: 10px
+    border-radius: 7px;
+    box-shadow:  3px 3px 3px rgba(85, 16, 16, 0.7)
 }
 
 .deleteRecipeButton {
     border-radius: 7px;
-    margin: 2px
+    margin: 2px;
+    box-shadow:  1px 1px 1px rgba(85, 16, 16, 0.7)
 }
 
 .editRecipeButton {
     border-radius: 7px;
-    margin: 2px
+    margin: 2px;
+    box-shadow:  1px 1px 1px rgba(85, 16, 16, 0.7)
 }
 
 .recipes {
@@ -64,4 +67,9 @@
     justify-content: center;
     font-family: 'Fredericka the Great', cursive;
     font-size: 70px
+}
+
+.readyToBrew {
+    border-radius: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7)
 }

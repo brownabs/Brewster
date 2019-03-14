@@ -27,7 +27,7 @@ export default class RecipeDetail extends Component {
 
                     <button
                         onClick={() => this.props.history.push(`/brewday/${recipe.id}`)}
-                        className="card-link">
+                        className="readyToBrew">
                         Ready To Brew
                     </button>
                 </div>
