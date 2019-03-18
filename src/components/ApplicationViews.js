@@ -7,9 +7,10 @@ import RecipeList from './recipe/RecipeList'
 import RecipeForm from './recipe/RecipeForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
 import RecipeDetail from './recipe/RecipeDetail'
-// import Timer from './recipe/Timer'
+import BatchDetail from './batch/BatchDetail'
 import BDRecipeDetail from './recipe/BDRecipeDetail'
-import BatchList from "./batch/BatchList";
+import BatchList from "./batch/BatchList"
+// import Timer from './recipe/Timer'
 
 class ApplicationViews extends Component {
 
@@ -22,34 +23,36 @@ class ApplicationViews extends Component {
   addRecipe = recipe =>
     RecipeManager.post(recipe)
       .then(() => RecipeManager.getAll())
-      .then(recipes => this.setState({ recipes: recipes }));
+      .then(recipes => this.setState({ recipes: recipes }))
 
 
   deleteRecipe = id => {
     return RecipeManager.deleteAndList(id).then(recipes => {
       this.setState({ recipes: recipes });
-    });
-  };
+    })
+  }
+
 
   editRecipe = recipe => {
     return RecipeManager.put(recipe)
       .then(() => {
-        return RecipeManager.getAll();
+        return RecipeManager.getAll()
       })
-      .then(recipes => this.setState({ recipes: recipes }));
-  };
+      .then(recipes => this.setState({ recipes: recipes }))
+  }
 
-  addBatch = batch =>
+  addBatch = batch => 
   BatchManager.post(batch)
     .then(() => BatchManager.getAll())
-    .then(batches => this.setState({ batches: batches }));
+    .then(batches => this.setState({ batches: batches }))
+
 
   componentDidMount() {
     UserManager.getAll().then(users => this.setState({ users: users }))
 
-    RecipeManager.getAll().then(recipes => this.setState({ recipes: recipes }));
+    RecipeManager.getAll().then(recipes => this.setState({ recipes: recipes }))
 
-    BatchManager.getAllBatches().then(batches => this.setState({ batches : batches }));
+    BatchManager.getAllBatches().then(batches => this.setState({ batches : batches }))
 
   }
   render() {
@@ -86,7 +89,7 @@ class ApplicationViews extends Component {
         <Route exact path="/brewday/:recipeId(\d+)" render={(props) => {
           return <BDRecipeDetail {...props} recipes={this.state.recipes}
           batches={this.state.batches}
-          addBatch={this.addBatch}
+          addBatch={this.addBatch} 
           />
         }} />
 
@@ -94,6 +97,12 @@ class ApplicationViews extends Component {
           return <BatchList {...props} batches={this.state.batches}
           addBatch={this.addBatch} recipes={this.state.recipes}
 
+          />
+        }} />
+
+<Route exact path="/batches/:batchId(\d+)" render={(props) => {
+          return <BatchDetail {...props}
+          batches={this.state.batches}
           />
         }} />
 

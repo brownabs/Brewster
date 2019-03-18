@@ -2,7 +2,7 @@
     margin: 20px;
     padding: 10px;
     border: 1px brown solid;
-    background-color:  #F3C473;
+    background-color:  #F7E7A7;
     border-radius: 10px;
     box-shadow: 10px 10px;
     display: flex;
@@ -18,17 +18,18 @@
     font-size: 70px;
     display: flex;
     justify-content: center;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Fredericka the Great', serif;
 
 }
 .registerLandingPage {
     margin: 50px;
-    border: 10px solid #4C3206;
+    border: 10px solid black;
     background-color: #F7E7A7
  }
  
  .registerInnerLandingPage {
      background-color: brown;
+     border: 10px black solid;
      display: flex;
      justify-content: center;
      flex-direction: row;

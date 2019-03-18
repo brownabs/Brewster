@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+
 .navbar {
     background-color: #ffffff;
 }
@@ -7,16 +9,19 @@
     width: 40px;
     padding: 2px
 }
-/* 
-.outerNav {
-    background-color: maroon;
-    height: 5px
-} */
 
 .logoutButton {
-    border-radius: 10px
+    border-radius: 7px;
+    margin: 0 15px 0 15px;
+    font-family: 'Fredericka the Great', serif;
+    width: 90px
 }
 
 .navUser {
     color: white
+}
+
+.siteName {
+    font-family: 'Fredericka the Great', serif;
+   font-size: 30px
 }

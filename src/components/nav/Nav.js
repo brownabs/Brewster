@@ -6,10 +6,11 @@ class Nav extends Component {
   logout = () => {
     sessionStorage.clear("credentials")
     this.props.setAuth()
+
   }
 
   //import withRouter
-  
+
   render() {
     return (
       <div className="outerNav">
@@ -17,17 +18,16 @@ class Nav extends Component {
         <ul className="nav nav-pills">
           <li className="nav-item">
             <Link className="nav-link text-white" to="/">
-              <h5>Brewster</h5>
+              <h5 className="siteName">Brewster</h5>
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/batches">Batches In Progress</Link>
+            <Link className="nav-link text-white" to="/batches">  <h5 className="siteName">Batches</h5></Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/completedbatches">Completed Batches</Link>
+            <Link className="nav-link text-white" to="/completedbatches"> <h5 className="siteName">Completed</h5></Link>
           </li>
         </ul>
-        <h5 className="navUser">Welcome {this.props.activeUser.username}</h5>
         <button
           type="button"
           className="logoutButton"
