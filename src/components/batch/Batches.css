@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 10px
 }
 
 .batch-page-title {
     display: flex;
     justify-content: center;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Fredericka the Great', serif;
     font-size: 70px
 }
 
@@ -28,4 +28,12 @@
     height: 100px;
     width: 100px;
     margin: 20px
+}
+
+.batch-detail-button {
+    font-size: 15px
+}
+
+.batchRecipe {
+    font-size: 30px
 }

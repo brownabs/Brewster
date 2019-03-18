@@ -22,6 +22,13 @@ export default Object.create(null, {
       }
   },
 
+  getRecipeFermentationTime: {
+    value: function (activeUser) {
+      return fetch(`${Settings.remoteURL}/recipes?/userId=${activeUser}&_sort=date&_order=asc`)
+        .then(r => r.json())
+    }
+  },
+
   post: {
     value: function (obj) {
       return fetch(`${Settings.remoteURL}/${this.desiredData}`, {

@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
 
+body {
+    font-family: serif;
+}
+
 .recipe-page-title {
     display: flex;
     justify-content: center;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Fredericka the Great', serif;
     font-size: 70px
 }
 
@@ -12,19 +16,30 @@
     justify-content: center;
 }
 .addRecipe {
-    border-radius: 10px
+    border-radius: 5px;
+    box-shadow:  3px 3px 3px rgba(85, 16, 16, 0.7)
 }
 
 .deleteRecipeButton {
-    border-radius: 7px;
-    margin: 2px
+    border-radius: 5px;
+    margin: 7px;
+    box-shadow:  2px 2px 2px rgba(107, 73, 73, 0.7);
+    font-size: 12px
 }
 
 .editRecipeButton {
-    border-radius: 7px;
-    margin: 2px
+    border-radius: 5px;
+    margin: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+    font-size: 10px
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-content: center;
+}
 .recipes {
     display: flex;
     flex-direction: row;
@@ -41,7 +56,9 @@
     padding: 10px;
     border: 1px solid black;
     margin: 10px;
-    box-shadow:  5px 5px 5px rgba(85, 16, 16, 0.7)
+    box-shadow:  5px 5px 5px rgba(85, 16, 16, 0.7);
+    height: 390px;
+    width: 350px;
 }
 
 .recipe-card-image {
@@ -51,17 +68,87 @@
 }
 
 .recipe-card-description {
-    height: 80px;
+    height: 50px;
     width: 320px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 5px
+    margin: 10px;
 }
 
+.recipe-detail-button {
+    font-size: 20px;
+}
 .recipe-detail-card-name {
     display: flex;
     justify-content: center;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Fredericka the Great', serif;
+    font-size: 70px;
+    margin: 10px 0 45px 0;
+}
+
+.readyToBrew {
+    border-radius: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+    margin: 20px
+}
+
+.recipeForm {
+    width: 300px;
+    height: 80%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.newRecipeForm {
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+.newEditForm {
+    display: flex;
+    justify-content: center;
+    height: auto;
+} 
+
+.editForm {
+    width: 300px;
+    height: 80%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+.new-recipe-page-title {
+    font-family: 'Fredericka the Great', serif;
     font-size: 70px
+}
+.recipe-detail-card-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.titleAndImageRecipe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 45px 0;
+
+}
+
+.image {
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+}
+
+.recipe-card-name {
+    font-family: 'Fredericka the Great', serif;
 }
