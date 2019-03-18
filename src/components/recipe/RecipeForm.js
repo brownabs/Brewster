@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import beer from '../auth/beerCartoon.jpg'
 import "./RecipeCard.css"
 
 
-
-
 export default class RecipeForm extends Component {
+
 
     state = {
         name: "",
@@ -35,7 +33,6 @@ export default class RecipeForm extends Component {
         const recipe = {
             name: this.state.name,
             description: this.state.description,
-            userId: this.state.userId,
             beerStyle: this.state.beerStyle,
             originalGravity: this.state.originalGravity,
             fermentationTime: this.state.fermentationTime,
@@ -49,7 +46,7 @@ export default class RecipeForm extends Component {
 
         this.props
             .addRecipe(recipe)
-            .then(() => this.props.history.push("/"));
+            .then(() => this.props.history.push(`/ingredients/${this.props.currentRecipeId}`))
 
     };
 
@@ -145,14 +142,14 @@ export default class RecipeForm extends Component {
                                 placeholder="" rows="4" cols="50"></textarea>
                             </fieldset>
                         </div>
-
                         <button
                             type="submit"
                             onClick={this.constructNewRecipe}
                             className="btn btn-dark"
                         >
-                            Add New Recipe
-          </button>
+                            Next Step: Add Ingredients
+                         </button>
+         
                     </form>
                 </div>
             </React.Fragment>

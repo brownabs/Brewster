@@ -29,7 +29,9 @@ export default class RecipeList extends Component {
                         .map(recipe =>
                             <div className="recipe">
                                 <Recipe key={recipe.id} recipe={recipe}
-                                    {...this.props} users={this.props.users}
+                                    {...this.props} 
+                                    recipeIngredients={this.props.recipeIngredients}
+                                    users={this.props.users}
                                     deleteRecipe={this.props.deleteRecipe}
                                     editRecipe={this.props.editRecipe}
                                     addBatch={this.props.addBatch}
