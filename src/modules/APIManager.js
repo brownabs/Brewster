@@ -38,7 +38,8 @@ export default Object.create(null, {
         },
         body: JSON.stringify(obj)
       })
-        .then(r => r.json())
+        .then(r =>{return r.json()})
+        
     }
   },
 

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import beer from '../auth/beerCartoon.jpg'
 import "./RecipeCard.css"
 
 
-
-
 export default class RecipeForm extends Component {
+
 
     state = {
         name: "",
@@ -35,21 +33,21 @@ export default class RecipeForm extends Component {
         const recipe = {
             name: this.state.name,
             description: this.state.description,
-            userId: this.state.userId,
             beerStyle: this.state.beerStyle,
             originalGravity: this.state.originalGravity,
             fermentationTime: this.state.fermentationTime,
             alcoholContent: this.state.alcoholContent,
             yield: this.state.yield,
             recipeInstructions: this.state.recipeInstructions,
-            comments: this.state.comments
+            comments: this.state.comments,
+            userId: this.state.userId
 
         };
 
 
         this.props
             .addRecipe(recipe)
-            .then(() => this.props.history.push("/"));
+            .then(() => this.props.history.push(`/ingredients/${this.props.currentRecipeId}`))
 
     };
 
@@ -84,11 +82,11 @@ export default class RecipeForm extends Component {
                         <div className="form-group">
                             <fieldset>
                                 <label htmlFor="description">Description:</label>
-                                <textarea 
-                               className="form-control" 
-                               onChange={this.handleFieldChange}
-                                id="description"
-                                placeholder="" rows="4" cols="50"></textarea>
+                                <textarea
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="description"
+                                    placeholder="" rows="4" cols="50"></textarea>
                             </fieldset>
                         </div>
                         <div className="form-group">
@@ -137,22 +135,32 @@ export default class RecipeForm extends Component {
                         </div>
                         <div className="form-group">
                             <fieldset>
-                                <label htmlFor="comments">Comments:</label>
-                                <textarea 
-                               className="form-control" 
-                               onChange={this.handleFieldChange}
-                                id="comments"
-                                placeholder="" rows="4" cols="50"></textarea>
+                                <label htmlFor="recipeInstructions">Instructions:</label>
+                                <textarea
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="recipeInstructions"
+                                    placeholder="" rows="4" cols="50"></textarea>
                             </fieldset>
                         </div>
-
+                        <div className="form-group">
+                            <fieldset>
+                                <label htmlFor="comments">Comments:</label>
+                                <textarea
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="comments"
+                                    placeholder="" rows="4" cols="50"></textarea>
+                            </fieldset>
+                        </div>
                         <button
                             type="submit"
                             onClick={this.constructNewRecipe}
                             className="btn btn-dark"
                         >
-                            Add New Recipe
-          </button>
+                        Next Step: Add Ingredients
+                         </button>
+
                     </form>
                 </div>
             </React.Fragment>

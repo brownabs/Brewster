@@ -65,8 +65,7 @@ export default class BDRecipeDetail extends Component {
                 <div key={recipe.id} className="recipe-card">   
                     <div className="brewday-card-body">
                     <h4 className="recipe-card-name">{recipe.name}</h4>
-                    <h5 className="brewday-card-description">Description: {recipe.description}</h5>
-                    
+                    <h5 className="brewday-card-further-description">Description: {recipe.description}</h5>
                     <h5 className="recipe-card-further-description">Beer Style: {recipe.beerStyle}</h5>
                     <h5 className="recipe-card-further-description">Original Gravity:  {recipe.originalGravity}</h5>
                     <h5 className="recipe-card-further-description">Alcohol Content: {recipe.alcoholContent}</h5>

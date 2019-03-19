@@ -6,7 +6,7 @@ import beer from '../auth/beerCartoon.jpg'
 
 export default class Recipe extends Component {
     render() {
-
+     
         return (
             <React.Fragment>
                 <section className="recipe">
