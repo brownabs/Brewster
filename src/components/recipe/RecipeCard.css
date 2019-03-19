@@ -64,7 +64,10 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10px
+    padding: 10px;
+    margin-left: 70px;
+    margin-right: 70px
+
 }
 
 .recipe-card-body {
@@ -74,10 +77,11 @@ body {
     align-items: center;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 5px;
     margin: 10px;
     box-shadow:  5px 5px 5px rgba(85, 16, 16, 0.7);
-    height: 390px;
-    width: 350px;
+    height: 370px;
+    width: 310px;
 }
 
 .recipe-card-image {
@@ -177,6 +181,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 70px;
+    margin-top: 60px;
+    margin-bottom: 10px;
     padding: 10px;
 }

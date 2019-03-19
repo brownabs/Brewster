@@ -82,11 +82,11 @@ export default class RecipeForm extends Component {
                         <div className="form-group">
                             <fieldset>
                                 <label htmlFor="description">Description:</label>
-                                <textarea 
-                               className="form-control" 
-                               onChange={this.handleFieldChange}
-                                id="description"
-                                placeholder="" rows="4" cols="50"></textarea>
+                                <textarea
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="description"
+                                    placeholder="" rows="4" cols="50"></textarea>
                             </fieldset>
                         </div>
                         <div className="form-group">
@@ -135,12 +135,22 @@ export default class RecipeForm extends Component {
                         </div>
                         <div className="form-group">
                             <fieldset>
+                                <label htmlFor="recipeInstructions">Instructions:</label>
+                                <textarea
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="recipeInstructions"
+                                    placeholder="" rows="4" cols="50"></textarea>
+                            </fieldset>
+                        </div>
+                        <div className="form-group">
+                            <fieldset>
                                 <label htmlFor="comments">Comments:</label>
-                                <textarea 
-                               className="form-control" 
-                               onChange={this.handleFieldChange}
-                                id="comments"
-                                placeholder="" rows="4" cols="50"></textarea>
+                                <textarea
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="comments"
+                                    placeholder="" rows="4" cols="50"></textarea>
                             </fieldset>
                         </div>
                         <button
@@ -148,9 +158,9 @@ export default class RecipeForm extends Component {
                             onClick={this.constructNewRecipe}
                             className="btn btn-dark"
                         >
-                            Next Step: Add Ingredients
+                        Next Step: Add Ingredients
                          </button>
-         
+
                     </form>
                 </div>
             </React.Fragment>

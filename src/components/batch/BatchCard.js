@@ -19,7 +19,7 @@ export default class Batch extends Component {
                         {/* <Link className="batch-nav-link text-dark" to={`/batches/${this.props.batch.recipe.id}`}>
                                 <h5 className="batch-detail-button">Read More...</h5></Link> */}
                         <h6 className="batchStartDate">Start Date: <em>{this.props.batch.startDate}</em> </h6> 
-                        <h6 className="batchBottleDate"><span>Ready to bottle: <em>{this.props.batch.bottleDate}</em>(<em><Moment fromNow>{this.props.batch.bottleDate}</Moment></em>)</span></h6> 
+                        <h6 className="batchBottleDate"><span>Ready to bottle: <em>{this.props.batch.bottleDate}</em> (<em><Moment fromNow>{this.props.batch.bottleDate}</Moment></em>)</span></h6> 
                         <h6 className="batchEndDate"><span>Ready to drink: <em>{this.props.batch.endDate}</em> (<em><Moment fromNow>{this.props.batch.endDate}</Moment></em>)</span></h6> 
 
                 </div>

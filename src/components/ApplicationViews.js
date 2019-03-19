@@ -104,6 +104,7 @@ class ApplicationViews extends Component {
         }} />
         <Route exact path="/recipes/:recipeId(\d+)" render={(props) => {
           return <RecipeDetail {...props} recipes={this.state.recipes}
+          ingredients={this.state.ingredients}
 
 
           />

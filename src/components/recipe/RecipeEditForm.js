@@ -159,7 +159,28 @@ export default class EditTaskForm extends Component {
                                 value={this.state.fermentationTime}
                             />
                         </div>
-
+                        <div className="form-group">
+                            <label htmlFor="recipeInstructions">Instructions:</label>
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={this.handleFieldChange}
+                                id="recipeInstructions"
+                                placeholder=""
+                                value={this.state.recipeInstructions}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <fieldset>
+                                <label htmlFor="comments">Comments:</label>
+                                <textarea 
+                               className="form-control" 
+                               onChange={this.handleFieldChange}
+                                id="comments"
+                                placeholder="" rows="4" cols="50"></textarea>
+                            </fieldset>
+                        </div>
                         <button
                             type="submit"
                             onClick={this.updateExistingRecipe}

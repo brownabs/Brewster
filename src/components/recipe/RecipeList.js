@@ -27,8 +27,8 @@ export default class RecipeList extends Component {
 
                     {this.props.recipes.filter(recipe => recipe.userId === userId)
                         .map(recipe =>
-                            <div className="recipe">
-                                <Recipe key={recipe.id} recipe={recipe}
+                            <div className="recipe" key={`r--${recipe.id}`}>
+                            <Recipe  recipe={recipe}
                                     {...this.props} 
                                     recipeIngredients={this.props.recipeIngredients}
                                     users={this.props.users}
