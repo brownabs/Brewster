@@ -1,10 +1,4 @@
-# Nutshell 🌰
+# Brewster 🍻
 
-## What is this project and what does it do?
+## An app for homebrewers that allows the user to keep track of recipes and stages of fermentation.
 
-## After I clone this repo, what do I need to do to setup and run this project?
-
-##### for markdown ideas https://markdown-it.github.io 😁
-
-# brewster
-# brewster
