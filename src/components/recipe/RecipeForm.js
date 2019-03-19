@@ -39,7 +39,8 @@ export default class RecipeForm extends Component {
             alcoholContent: this.state.alcoholContent,
             yield: this.state.yield,
             recipeInstructions: this.state.recipeInstructions,
-            comments: this.state.comments
+            comments: this.state.comments,
+            userId: this.state.userId
 
         };
 

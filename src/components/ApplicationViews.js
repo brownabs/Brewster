@@ -3,13 +3,14 @@ import { Route } from 'react-router-dom'
 import UserManager from '../modules/UserManager'
 import RecipeManager from '../modules/RecipeManager'
 import BatchManager from '../modules/BatchManager'
-import RecipeIngredientsManager from "../modules/RecipeIngredientsManager"
+import IngredientManager from '../modules/IngredientManager'
+// import RecipeIngredientsManager from "../modules/RecipeIngredientsManager"
 import RecipeList from './recipe/RecipeList'
 import RecipeForm from './recipe/RecipeForm'
-import RecipeIngredientForm from './recipe/RecipeIngredientForm'
+import IngredientForm from './recipe/IngredientForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
 import RecipeDetail from './recipe/RecipeDetail'
-import BatchDetail from './batch/BatchDetail'
+// import BatchDetail from './batch/BatchDetail'
 import BDRecipeDetail from './recipe/BDRecipeDetail'
 import BatchList from "./batch/BatchList"
 // import Timer from './recipe/Timer'
@@ -20,16 +21,16 @@ class ApplicationViews extends Component {
     users: [],
     recipes: [],
     batches: [],
-    recipeIngredients: [],
+    ingredients: [],
     currentRecipeId: [],
   }
 
   addRecipe = ((recipe) =>
     RecipeManager.post(recipe)
       .then((r) => RecipeManager.get(r.id))
-      .then((recipe) => this.setState({currentRecipeId: recipe.id}))
+      .then((recipe) => this.setState({ currentRecipeId: recipe.id }))
       .then(() => RecipeManager.getAll())
-      .then(recipes => this.setState({ recipes: recipes })) )
+      .then(recipes => this.setState({ recipes: recipes })))
 
 
   deleteRecipe = id => {
@@ -52,15 +53,21 @@ class ApplicationViews extends Component {
       .then(() => BatchManager.getAll())
       .then(batches => this.setState({ batches: batches }))
 
+  addIngredient = ingredient =>
+    IngredientManager.post(ingredient)
+      .then(() => IngredientManager.getAll())
+      .then(ingredients => this.setState({ ingredients: ingredients }))
+
 
   componentDidMount() {
+  
     UserManager.getAll().then(users => this.setState({ users: users }))
-
-    RecipeIngredientsManager.getAll().then(recipeIngredients => this.setState({ recipeIngredients: recipeIngredients }))
 
     RecipeManager.getAll().then(recipes => this.setState({ recipes: recipes }))
 
     BatchManager.getAllBatches().then(batches => this.setState({ batches: batches }))
+
+    IngredientManager.getAll().then(ingredients => this.setState({ ingredients: ingredients }))
 
 
   }
@@ -97,11 +104,13 @@ class ApplicationViews extends Component {
           />
         }} />
 
-        <Route exact path="/ingredients/:currentRecipeId(\d+)" render={props => {
-          return <RecipeIngredientForm   {...props}
+        <Route exact path="/ingredients/:currentRecipeId(\d+)" render={ (props) => {
+          return <IngredientForm   {...props}
             recipes={this.state.recipes}
             addRecipe={this.addRecipe}
-            
+            ingredients={this.state.ingredients}
+            addIngredient={this.addIngredient}
+
 
           />
         }} />
