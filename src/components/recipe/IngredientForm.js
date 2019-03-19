@@ -15,13 +15,6 @@ export default class IngredientForm extends Component {
         currentIngredients: []
     }
 
-    componentDidMount() {
-        const newState = {}
-        let currentIngredients= this.props.ingredients.filter(ingredient => ingredient.recipeId === parseInt(this.props.match.params.currentRecipeId))
-        newState.currentIngredients = currentIngredients
-        this.setState(newState)
-    }
-
     handleFieldChange = evt => {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
@@ -32,22 +25,12 @@ export default class IngredientForm extends Component {
         evt.preventDefault();
 
         const ingredient = {
-            id: this.state.id,
             name: this.state.name,
             quantity: this.state.quantity,
            recipeId: this.state.currentRecipeId
-
         };
 
-
-        this.props
-            .addIngredient(ingredient)
-
-        const newState = this.state
-        newState.currentIngredients.push(ingredient)
-        this.setState(newState)
-        // .then(() => this.props.history.push(`/ingredients/${this.props.currentRecipeId}`))
-
+        this.props.addIngredient(ingredient)
     };
 
     render() {
@@ -56,15 +39,19 @@ export default class IngredientForm extends Component {
         return (
             <React.Fragment>
                 <h1 className="recipe-page-title">Ingredients</h1>
-                <div className="ingredient">
+                <div className="ingredients">
                     {
-                        this.state.currentIngredients.map((ing) => 
+                        this.props.ingredients.filter(ingredient => 
+                            ingredient.recipeId === parseInt(this.props.match.params.currentRecipeId))
+                        .map((ing) => 
+                            console.log(ing) ||
                             <section >
-                            <div key={ing.id}>
-                                {ing.name}
-                                {ing.quantity}
-                            </div>
-                            <button>Delete</button>
+                                <div key={ing.id}>
+                                    <h5>({ing.id}) {ing.name} :  {ing.quantity}  </h5>
+                                    <button className="deleteIngredientButton" 
+                                    onClick={() => this.props.deleteIngredient(ing.id)}
+                                    >Delete</button>
+                                </div>
                             </section>
                         
                         )

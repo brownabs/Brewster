@@ -39,7 +39,11 @@ class ApplicationViews extends Component {
     })
   }
 
-
+  deleteIngredient = id => {
+    return IngredientManager.deleteAndList(id).then(ingredients => {
+      this.setState({ ingredients: ingredients });
+    })
+  }
   editRecipe = recipe => {
     return RecipeManager.put(recipe)
       .then(() => {
@@ -87,6 +91,7 @@ class ApplicationViews extends Component {
           return <RecipeForm {...props}
             addRecipe={this.addRecipe}
             currentRecipeId={this.state.currentRecipeId}
+            ingredients={this.state.ingredients}
 
           />
         }} />
@@ -110,6 +115,7 @@ class ApplicationViews extends Component {
             addRecipe={this.addRecipe}
             ingredients={this.state.ingredients}
             addIngredient={this.addIngredient}
+            deleteIngredient={this.deleteIngredient}
 
 
           />
@@ -127,12 +133,6 @@ class ApplicationViews extends Component {
 
           />
         }} />
-
-        {/* <Route exact path="/batches/:batchId(\d+)" render={(props) => {
-          return <BatchDetail {...props}
-          batches={this.state.batches} recipes={this.state.recipes}
-          />
-        }} /> */}
 
 
       </React.Fragment>
