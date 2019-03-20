@@ -20,6 +20,7 @@ export default class BatchList extends Component {
                                    {...this.props} 
                                     recipe={this.props.recipe}
                                     users={this.props.users}
+                                    deleteBatch={this.props.deleteBatch}
                             />
                             </div>
                         )

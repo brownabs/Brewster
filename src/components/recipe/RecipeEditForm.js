@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import RecipeManager from "../../modules/RecipeManager"
 import "./RecipeCard.css"
 
-export default class EditTaskForm extends Component {
+export default class RecipeEditForm extends Component {
 
     state = {
         name: "",
@@ -147,18 +147,23 @@ export default class EditTaskForm extends Component {
                                 value={this.state.yield}
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="fermentationTime">Fermentation Time</label>
-                            <input
-                                type="text"
-                                required
-                                className="form-control"
-                                onChange={this.handleFieldChange}
-                                id="fermentationTime"
-                                placeholder="weeks before bottling"
-                                value={this.state.fermentationTime}
-                            />
-                        </div>
+                        <fieldset>
+                        <label htmlFor="fermentationTime">Fermentation Time:</label>
+                        <select id="fermentationTime" className="form-control"
+                         onChange={this.handleFieldChange}
+                        >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        </fieldset>
                         <div className="form-group">
                             <label htmlFor="recipeInstructions">Instructions:</label>
                             <input

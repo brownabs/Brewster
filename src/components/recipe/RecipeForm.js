@@ -122,7 +122,7 @@ export default class RecipeForm extends Component {
                                 placeholder="5 gallons"
                             />
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="fermentationTime">Fermentation Time:</label>
                             <input
                                 type="text"
@@ -132,7 +132,24 @@ export default class RecipeForm extends Component {
                                 id="fermentationTime"
                                 placeholder="number of weeks before bottling"
                             />
-                        </div>
+                        </div> */}
+                        <fieldset>
+                        <label htmlFor="fermentationTime">Fermentation Time:</label>
+                        <select id="fermentationTime" className="form-control"
+                         onChange={this.handleFieldChange}
+                        >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        </fieldset>
                         <div className="form-group">
                             <fieldset>
                                 <label htmlFor="recipeInstructions">Instructions:</label>
@@ -158,7 +175,7 @@ export default class RecipeForm extends Component {
                             onClick={this.constructNewRecipe}
                             className="btn btn-dark"
                         >
-                        Next Step: Add Ingredients
+                            Next Step: Add Ingredients
                          </button>
 
                     </form>

@@ -4,10 +4,10 @@ import UserManager from '../modules/UserManager'
 import RecipeManager from '../modules/RecipeManager'
 import BatchManager from '../modules/BatchManager'
 import IngredientManager from '../modules/IngredientManager'
-// import RecipeIngredientsManager from "../modules/RecipeIngredientsManager"
 import RecipeList from './recipe/RecipeList'
 import RecipeForm from './recipe/RecipeForm'
 import IngredientForm from './recipe/IngredientForm'
+import EditBatchForm from './batch/EditBatchForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
 import RecipeDetail from './recipe/RecipeDetail'
 // import BatchDetail from './batch/BatchDetail'
@@ -36,6 +36,12 @@ class ApplicationViews extends Component {
   deleteRecipe = id => {
     return RecipeManager.deleteAndList(id).then(recipes => {
       this.setState({ recipes: recipes });
+    })
+  }
+
+  deleteBatch = id => {
+    return BatchManager.deleteBatch(id).then(batches => {
+      this.setState({ batches: batches });
     })
   }
 
@@ -81,7 +87,7 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <RecipeList {...props}
             recipes={this.state.recipes}
-            recipeIngredients={this.state.recipeIngredients}
+            // recipeIngredients={this.state.recipeIngredients}
             deleteRecipe={this.deleteRecipe}
             editRecipe={this.editRecipe}
           />
@@ -125,13 +131,23 @@ class ApplicationViews extends Component {
           return <BDRecipeDetail {...props} recipes={this.state.recipes}
             batches={this.state.batches}
             addBatch={this.addBatch}
+            deleteRecipe={this.props.deleteRecipe}
+
           />
         }} />
 
         <Route exact path="/batches" render={(props) => {
           return <BatchList {...props} batches={this.state.batches}
             addBatch={this.addBatch} recipes={this.state.recipes}
+            deleteBatch={this.deleteBatch}
+          />
+        }} />
 
+      <Route exact path="/batches/:batchId(\d+)/edit" render={props => {
+          return <EditBatchForm   {...props}
+            recipes={this.state.recipes}
+            batches={this.state.batches}
+            editRecipe={this.editRecipe}
           />
         }} />
 

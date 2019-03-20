@@ -37,3 +37,26 @@
 .batchRecipe {
     font-size: 30px
 }
+
+.deleteBatchButton {
+
+border-radius: 5px;
+margin: 7px;
+box-shadow:  2px 2px 2px rgba(107, 73, 73, 0.7);
+font-size: 12px
+}
+
+
+.editBatchButton {
+    border-radius: 5px;
+    margin: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+    font-size: 10px
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-content: center;
+}
