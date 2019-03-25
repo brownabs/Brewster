@@ -122,17 +122,6 @@ export default class RecipeForm extends Component {
                                 placeholder="5 gallons"
                             />
                         </div>
-                        {/* <div className="form-group">
-                            <label htmlFor="fermentationTime">Fermentation Time:</label>
-                            <input
-                                type="text"
-                                required
-                                className="form-control"
-                                onChange={this.handleFieldChange}
-                                id="fermentationTime"
-                                placeholder="number of weeks before bottling"
-                            />
-                        </div> */}
                         <fieldset>
                         <label htmlFor="fermentationTime">Fermentation Time:</label>
                         <select id="fermentationTime" className="form-control"

@@ -13,7 +13,7 @@ import RecipeDetail from './recipe/RecipeDetail'
 // import BatchDetail from './batch/BatchDetail'
 import BDRecipeDetail from './recipe/BDRecipeDetail'
 import BatchList from "./batch/BatchList"
-// import Timer from './recipe/Timer'
+
 
 class ApplicationViews extends Component {
 

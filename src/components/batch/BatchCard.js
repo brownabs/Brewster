@@ -23,14 +23,14 @@ export default class Batch extends Component {
                             <h6 className="batchEndDate"><span>Ready to drink: <em>{this.props.batch.endDate}</em> (<em><Moment fromNow>{this.props.batch.endDate}</Moment></em>)</span></h6>
                                 
                             <div className="buttons">
-                            <button
+                            {/* <button
                                 type="button"
                                 className="editBatchButton"
                                 onClick={() => {
                                     this.props.history.push(`/batches/${this.props.batch.id}/edit`)
                                 }}
                             ><i className="fas fa-edit"></i>
-                            </button>
+                            </button> */}
                             <button
                                 onClick={() => this.props.deleteBatch(this.props.batch.id)}
                                 className="deleteBatchButton"><i className="fas fa-trash-alt"></i>
