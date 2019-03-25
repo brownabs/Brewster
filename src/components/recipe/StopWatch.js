@@ -37,13 +37,23 @@ export default class StopWatch extends Component {
     })
   }
 
+
   render() {
 
 
     const { time } = this.state;
+    //Math.floor() returns the largest integer less than or equal to a given number
+    
+    //10 represents 1/100th of a second
     let centiseconds = ("0" + (Math.floor(time / 10) % 100)).slice(-2);
+
+    //1000 represents 1/60th of a minute
     let seconds = ("0" + (Math.floor(time / 1000) % 60)).slice(-2);
+
+    // 60000 represents 1/60th of an hour
     let minutes = ("0" + (Math.floor(time / 60000) % 60)).slice(-2);
+
+    //3600000 doesn't need a modulus if <100 hours
     let hours = ("0" + Math.floor(time / 3600000)).slice(-2);
 
     return (
