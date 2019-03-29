@@ -7,6 +7,10 @@ export default class StopWatch extends Component {
     time: 0,
     isOn: false,
     start: 0,
+    comments: "",
+    timeStamp: "",
+    batchId: "",
+    commentDescription: ""
   }
 
   //will be called when the timer is started or resumed
@@ -25,8 +29,8 @@ export default class StopWatch extends Component {
 
   //function for stop
   stopTimer = () => {
-    this.setState({ isOn: false });
-    clearInterval(this.timer);
+    this.setState({ isOn: false })
+    clearInterval(this.timer)
   }
 
   //function for reset
@@ -35,6 +39,31 @@ export default class StopWatch extends Component {
       start: 0,
       time: 0
     })
+  }
+
+  handleFieldChange = evt => {
+    const stateToChange = {};
+    stateToChange[evt.target.id] = evt.target.value;
+    this.setState(stateToChange);
+}
+
+
+  constructNewComment = evt => {
+
+      evt.preventDefault();
+
+      const comment = {
+          commentDescription: this.state.commentDescription, 
+          timeStamp: this.state.timeStamp,
+          batchId: this.state.batchId,
+          id: this.state.id
+      }
+
+      this.props
+          .addComment(comment)
+          .then(() => this.props.history.push(`/brewday/${this.props.recipes.id}`))
+          
+
   }
 
 
@@ -76,7 +105,22 @@ export default class StopWatch extends Component {
             <button className="stopwatchbutton" onClick={this.resetTimer}>Reset</button>
           )}
         </div>
-
+        {this.state.isOn === false && this.state.time > 0 && (
+             <div className="batchComments">
+             <fieldset>
+             <textarea
+             type="text"
+             required
+             className="commentDescription"
+             onChange={this.handleFieldChange}
+             id="commentDescription"
+             placeholder="" rows="4" cols="50"></textarea>           
+         </fieldset>
+               
+          <button className="stopwatchbutton" onClick={this.constructNewComment}>Add Comment</button>
+         </div>
+         
+          )}
       </React.Fragment>
     )
   }

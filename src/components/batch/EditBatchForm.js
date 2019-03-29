@@ -2,21 +2,36 @@ import React, { Component } from "react"
 import RecipeManager from "../../modules/RecipeManager"
 import "../recipe/RecipeCard.css"
 
-export default class RecipeEditForm extends Component {
+export default class EditBatchForm extends Component {
 
     state = {
+        id: this.props.match.params.recipeId,
         originalGravity: "",
         fermentationTime: "",
-        alcoholContent: "",
         comments: "",
         userId: parseInt(sessionStorage.getItem("credentials")),
+        name: "",
+        description: "",
+        beerStyle: "",
+        alcoholContent: "",
+        yield: "",
+        recipeInstructions: "",
     }
-
+ 
 
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
+    }
+
+      editFermentationTime  = () => {
+        const editedFermentationTime = {
+            fermentationTime: this.state.fermentationTime
+        }
+
+        this.props.patchRecipe( editedFermentationTime , this.props.recipes.id)
+            .then(() => this.props.history.push("/batches"))
     }
 
     updateExistingRecipe = evt => {
@@ -29,11 +44,16 @@ export default class RecipeEditForm extends Component {
             originalGravity: this.state.originalGravity,
             fermentationTime: this.state.fermentationTime,
             alcoholContent: this.state.alcoholContent,
-            comments: this.state.comments
+            comments: this.state.comments,
+            name: this.state.name,
+            description: this.state.description,
+            beerStyle: this.state.beerStyle,
+            yield: this.state.yield,
         };
 
         this.props.editRecipe(editedRecipe)
-            .then(() => this.props.history.push("/batches"))
+            .then(() => this.editFermentationTime())
+            .then(() => this.props.history.push("/batches"))       
     }
 
 
@@ -44,7 +64,13 @@ export default class RecipeEditForm extends Component {
                     userId: recipe.userId,
                     originalGravity: recipe.originalGravity,
                     fermentationTime: recipe.fermentationTime,
-                    comments: recipe.comments
+                    comments: recipe.comments,
+                    name: recipe.name,
+                    description: recipe.description,
+                    beerStyle: recipe.beerStyle,
+                    alcoholContent: recipe.alcoholContent,
+                    yield: recipe.yield,
+                    recipeInstructions: recipe.recipeInstructions,
                 });
             });
     }
@@ -58,21 +84,23 @@ export default class RecipeEditForm extends Component {
                 <div className="newRecipeForm">
                     <form className="recipeForm">
                         <div className="form-group">
-                            <label htmlFor="originalGravity">Original Gravity</label>
+                            <label htmlFor="originalGravity">Original Gravity: {this.state.originalGravity}</label>
+                            {/* <div>
+                            <label htmlFor="originalGravity">Current Gravity: </label></div>
                             <input
                                 type="text"
                                 required
                                 className="form-control"
                                 onChange={this.handleFieldChange}
                                 id="originalGravity"
-                                placeholder="1.064"
-                                value={this.state.originalGravity}
-                            />
+                                placeholder=""
+                            /> */}
                         </div>
                         <fieldset>
-                        <label htmlFor="fermentationTime">Fermentation Time:</label>
+                        <label htmlFor="fermentationTime">Add Weeks of Fermentation Time:</label>
                         <select id="fermentationTime" className="form-control"
                          onChange={this.handleFieldChange}
+                         value={this.state.fermentationTime}
                         >
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -88,7 +116,7 @@ export default class RecipeEditForm extends Component {
                         </fieldset>
                         <div className="form-group">
                             <fieldset>
-                                <label htmlFor="comments">Comments:</label>
+                                <label htmlFor="comments">Batch Comments:</label>
                                 <textarea 
                                className="form-control" 
                                onChange={this.handleFieldChange}
@@ -98,7 +126,7 @@ export default class RecipeEditForm extends Component {
                         </div>
                         <button
                             type="submit"
-                            onClick={this.updateExistingRecipe}
+                            onClick={this.updateExistingBatch}
                             className="btn btn-dark"
                         >
                             Submit

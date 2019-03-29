@@ -22,6 +22,7 @@ export default class BDRecipeDetail extends Component {
         startDate: "",
         endDate: "",
         comments: "",
+        fermentationTime: ""
     }
 
     handleFieldChange = evt => {
@@ -29,7 +30,7 @@ export default class BDRecipeDetail extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
-
+  
 
     makeNewBatch = (evt, fermentationTime) => {
         evt.preventDefault()
@@ -76,12 +77,18 @@ export default class BDRecipeDetail extends Component {
                         <h5 className="brewday-card-further-description">Yields: {recipe.yield}</h5>
                         <div>
                           
-                         <StopWatch/>
+                         <StopWatch comments={this.props.comments}
+                                    {...this.props} 
+                                    recipes={this.props.recipes}
+                                    addComment={this.props.addComment}
+                                    history={this.props.history} 
+                                    />
                            
                         </div>
                         <h5 href={recipe.recipeInstructions} className="brewday-instructions-card-further-description">Instructions: {recipe.recipeInstructions}</h5>
                         <h5 href={recipe.comments} className="brewdaycard-further-description">Comments: {recipe.comments}</h5>
-                        <button
+
+                        <button 
                             type="submit"
                             onClick={(e) => {
                                 this.makeNewBatch(e, recipe.fermentationTime)

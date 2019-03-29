@@ -1,6 +1,12 @@
 .startFermentation {
     border-radius: 7px;
-    margin: 10px;
+    margin: 15px 0 15px 0;
+    box-shadow:  1px 1px 1px rgba(85, 16, 16, 0.7)
+
+}
+
+.commentsButton {
+    border-radius: 7px;
     box-shadow:  1px 1px 1px rgba(85, 16, 16, 0.7)
 }
 
@@ -56,4 +62,15 @@
     overflow: scroll;
     border-radius: 7px;
     box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+}
+
+.batchComments {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.commentDescription {
+    height: 200px;
+    width: 300px;
 }

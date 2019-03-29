@@ -22,8 +22,8 @@ export default class IngredientForm extends Component {
     }
 
     createNewIngredient = evt => {
+
         evt.preventDefault();
-        // evt.target.reset();
 
         const ingredient = {
             name: this.state.name,
@@ -32,18 +32,18 @@ export default class IngredientForm extends Component {
         };
 
         this.props.addIngredient(ingredient)
-        .then(() => {
-            this.setState({
-                name: "",
-                quantity: ""
+            .then(() => {
+                this.setState({
+                    name: "",
+                    quantity: ""
+                })
             })
-        })
 
-    };
+    }
 
     completeRecipe = evt => {
         evt.preventDefault();
-        
+
         const ingredient = {
             name: this.state.name,
             quantity: this.state.quantity,
@@ -51,9 +51,10 @@ export default class IngredientForm extends Component {
         };
 
         this.props.addIngredient(ingredient)
-        .then(() => this.props.history.push(`/recipes/${ingredient.recipeId}`))
-        
-    };
+            .then(() => this.props.history.push(`/recipes/${ingredient.recipeId}`))
+
+    }  
+
     render() {
 
 
@@ -70,12 +71,13 @@ export default class IngredientForm extends Component {
                                     <div key={ing.id}>
                                         <h5> {ing.name} :  {ing.quantity}  <button className="deleteIngredientButton"
                                             onClick={() => this.props.deleteIngredient(ing.id)}
-                                        >Delete</button> </h5>
+                                        > Delete
+                                        </button>
+                                        </h5>
                                     </div>
                                 </section>
 
                             )
-
                     }
                 </div>
                 <div className="newRecipeForm">
@@ -114,7 +116,7 @@ export default class IngredientForm extends Component {
                             type="button"
                             className="completeRecipeButton"
                             onClick={this.completeRecipe}>
-                           Complete Recipe
+                            Complete Recipe
                         </button>
                     </form>
                 </div>
