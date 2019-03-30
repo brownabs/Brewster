@@ -7,10 +7,9 @@ export default class StopWatch extends Component {
     time: 0,
     isOn: false,
     start: 0,
-    comments: "",
     timeStamp: "",
-    batchId: "",
-    commentDescription: ""
+    batchId: this.props.match.params.batch.id,
+    commentDescription: "",
   }
 
   //will be called when the timer is started or resumed
@@ -45,25 +44,30 @@ export default class StopWatch extends Component {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
-}
+  }
 
 
   constructNewComment = evt => {
 
-      evt.preventDefault();
+    evt.preventDefault();
 
-      const comment = {
-          commentDescription: this.state.commentDescription, 
-          timeStamp: this.state.timeStamp,
-          batchId: this.state.batchId,
-          id: this.state.id
-      }
+    const comment = {
+      commentDescription: this.state.commentDescription,
+      timeStamp: this.state.timeStamp,
+      batchId: this.state.batchId,
+      id: this.state.id
+    }
 
-      this.props
-          .addComment(comment)
-          .then(() => this.props.history.push(`/brewday/${this.props.recipes.id}`))
-          
-
+    this.props
+      .addComment(comment)
+      .then(() => {
+        this.setState({
+            commentDescription: "",
+            timeStamp: "",
+            batchId: "",
+            id: ""
+        })
+    })
   }
 
 
@@ -72,7 +76,7 @@ export default class StopWatch extends Component {
 
     const { time } = this.state;
     //Math.floor() returns the largest integer less than or equal to a given number
-    
+
     //10 represents 1/100th of a second
     let centiseconds = ("0" + (Math.floor(time / 10) % 100)).slice(-2);
 
@@ -104,23 +108,40 @@ export default class StopWatch extends Component {
           {this.state.isOn === false && this.state.time > 0 && (
             <button className="stopwatchbutton" onClick={this.resetTimer}>Reset</button>
           )}
-        </div>
-        {this.state.isOn === false && this.state.time > 0 && (
-             <div className="batchComments">
-             <fieldset>
-             <textarea
-             type="text"
-             required
-             className="commentDescription"
-             onChange={this.handleFieldChange}
-             id="commentDescription"
-             placeholder="" rows="4" cols="50"></textarea>           
-         </fieldset>
-               
-          <button className="stopwatchbutton" onClick={this.constructNewComment}>Add Comment</button>
-         </div>
-         
+
+          {this.state.isOn === false && this.state.time > 0 && (
+            <div className="batchComments">
+              <fieldset>
+                <textarea
+                  type="text"
+                  required
+                  className="commentDescription"
+                  onChange={this.handleFieldChange}
+                  id="commentDescription"
+                  placeholder="" rows="4" cols="50"></textarea>
+              </fieldset>
+
+              <button className="stopwatchbutton" onClick={this.constructNewComment}>Add Comment</button>
+            </div>
+
           )}
+        </div>
+        <div className="comments">
+        <h5>Brew Day Comments:</h5>
+                    {
+                        this.props.comments.filter(comment => 
+                          comment.batchId === parseInt(this.props.match.params.batch.id))
+                        .map(comment =>
+                                <section >
+                                    <div key={comment.id}>
+                                        <h5> {comment.commentDescription}
+                                        </h5>
+                                    </div>
+                                </section>
+
+                            )
+                    }
+                </div>
       </React.Fragment>
     )
   }

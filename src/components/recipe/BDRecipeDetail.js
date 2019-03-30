@@ -6,10 +6,6 @@ import gif from './bottling-animated.gif'
 import StopWatch from './StopWatch'
 
 
-
-
-
-
 export default class BDRecipeDetail extends Component {
 
 
@@ -21,8 +17,7 @@ export default class BDRecipeDetail extends Component {
         bottleDate: parseInt(this.props.recipes.fermentationTime),
         startDate: "",
         endDate: "",
-        comments: "",
-        fermentationTime: ""
+        fermentationTime: "",
     }
 
     handleFieldChange = evt => {
@@ -30,7 +25,7 @@ export default class BDRecipeDetail extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
-  
+
 
     makeNewBatch = (evt, fermentationTime) => {
         evt.preventDefault()
@@ -48,19 +43,16 @@ export default class BDRecipeDetail extends Component {
 
         this.props.addBatch(batch)
             .then(() => this.props.history.push("/batches"))
-
-
     }
 
     render() {
 
         const recipe = this.props.recipes.find(r =>
             r.id === parseInt(this.props.match.params.recipeId))
-            || { }
-
+            || {}
 
         return (
-            
+
             <section className="brewday">
                 <div className="titleAndImage">
                     <img src={gif} className="gifImage" alt="loading..." /><h1 className="brewday-recipe-page-title">Brewing</h1><img src={gif} className="gifImage" alt="loading..." />
@@ -76,19 +68,21 @@ export default class BDRecipeDetail extends Component {
                         <h5 className="brewday-card-further-description">Fermentation Time: {recipe.fermentationTime} weeks</h5>
                         <h5 className="brewday-card-further-description">Yields: {recipe.yield}</h5>
                         <div>
-                          
-                         <StopWatch comments={this.props.comments}
-                                    {...this.props} 
-                                    recipes={this.props.recipes}
-                                    addComment={this.props.addComment}
-                                    history={this.props.history} 
-                                    />
-                           
-                        </div>
-                        <h5 href={recipe.recipeInstructions} className="brewday-instructions-card-further-description">Instructions: {recipe.recipeInstructions}</h5>
-                        <h5 href={recipe.comments} className="brewdaycard-further-description">Comments: {recipe.comments}</h5>
+                            
 
-                        <button 
+                            <StopWatch    {...this.props}
+                                batches={this.props.batches}
+                                comments={this.props.comments}
+                                recipes={this.props.recipes}
+                                addComment={this.props.addComment}
+                                history={this.props.history}
+                            />
+
+                        </div>
+
+                        <h5 href={recipe.recipeInstructions} className="brewday-instructions-card-further-description">Instructions: {recipe.recipeInstructions}</h5>
+
+                        <button
                             type="submit"
                             onClick={(e) => {
                                 this.makeNewBatch(e, recipe.fermentationTime)

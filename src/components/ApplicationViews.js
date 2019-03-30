@@ -84,6 +84,7 @@ class ApplicationViews extends Component {
     CommentManager.post(comment)
       .then(() => CommentManager.getAll())
       .then(comments => this.setState({ comments: comments }))
+      
 
   addIngredient = ingredient =>
     IngredientManager.post(ingredient)
