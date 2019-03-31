@@ -66,6 +66,20 @@ class ApplicationViews extends Component {
       .then(recipes => this.setState({ recipes: recipes }))
   }
 
+  // editBatch = batch => {
+  //   return BatchManager.put(batch)
+  //     .then(() => {
+  //       return BatchManager.getAll()
+  //     })
+  //     .then(batches => this.setState({ batches: batches }))
+  // }
+
+  editBatch = id => {
+    return BatchManager.editBatch(id).then(batches => {
+      this.setState({ batches: batches });
+    })
+  }
+
   patchRecipe = (editedFermentationTime, id) => {
     return RecipeManager.patch(editedFermentationTime, id)
       .then(() => {
@@ -169,12 +183,13 @@ class ApplicationViews extends Component {
           />
         }} />
 
-        <Route exact path="/batches/:recipeId(\d+)/edit" render={props => {
+        <Route exact path="/batches/:batchId(\d+)/edit" render={props => {
           return <EditBatchForm  {...props}
             recipes={this.state.recipes}
             batches={this.state.batches}
-            editRecipe={this.editRecipe}
+            editBatch={this.editBatch}
             patchRecipe={this.patchRecipe}
+
           />
         }} />
 

@@ -1,21 +1,18 @@
 import React, { Component } from "react"
-import RecipeManager from "../../modules/RecipeManager"
 import "../recipe/RecipeCard.css"
+import BatchManager from '../../modules/BatchManager'
 
 export default class EditBatchForm extends Component {
 
     state = {
-        id: this.props.match.params.recipeId,
+        id: "",
         originalGravity: "",
-        fermentationTime: "",
-        comments: "",
+        bottleDate: "",
+        endDate: "",
         userId: parseInt(sessionStorage.getItem("credentials")),
-        name: "",
-        description: "",
-        beerStyle: "",
-        alcoholContent: "",
-        yield: "",
-        recipeInstructions: "",
+        recipeId: "",
+        startDate: "",
+        comments: ""
     }
  
 
@@ -25,55 +22,41 @@ export default class EditBatchForm extends Component {
         this.setState(stateToChange)
     }
 
-      editFermentationTime  = () => {
-        const editedFermentationTime = {
-            fermentationTime: this.state.fermentationTime
-        }
-
-        this.props.patchRecipe( editedFermentationTime , this.props.recipes.id)
-            .then(() => this.props.history.push("/batches"))
-    }
-
-    updateExistingRecipe = evt => {
+    
+    updateExistingBatch = evt => {
         evt.preventDefault()
 
-
-        const editedRecipe = {
-            id: this.props.match.params.recipeId,
+        const editedBatch = {
+            id: this.props.match.params.batchId,
             userId: this.state.userId,
-            originalGravity: this.state.originalGravity,
-            fermentationTime: this.state.fermentationTime,
-            alcoholContent: this.state.alcoholContent,
             comments: this.state.comments,
-            name: this.state.name,
-            description: this.state.description,
-            beerStyle: this.state.beerStyle,
-            yield: this.state.yield,
-        };
+            bottleDate: this.state.bottleDate,
+            endDate: this.state.endDate,
+            recipeId: this.state.recipeId,
+            startDate: this.state.startDate,
+        }
 
-        this.props.editRecipe(editedRecipe)
-            .then(() => this.editFermentationTime())
-            .then(() => this.props.history.push("/batches"))       
+        this.props.editBatch(editedBatch)
+        .then(() => this.props.history.push("/batches"))
+
     }
-
 
     componentDidMount() {
-        RecipeManager.get(this.props.match.params.recipeId)
-            .then(recipe => {
-                this.setState({
-                    userId: recipe.userId,
-                    originalGravity: recipe.originalGravity,
-                    fermentationTime: recipe.fermentationTime,
-                    comments: recipe.comments,
-                    name: recipe.name,
-                    description: recipe.description,
-                    beerStyle: recipe.beerStyle,
-                    alcoholContent: recipe.alcoholContent,
-                    yield: recipe.yield,
-                    recipeInstructions: recipe.recipeInstructions,
-                });
+        BatchManager.get(this.props.match.params.batchId)
+        .then(batch => {
+            this.setState({
+                userId: batch.userId,
+                comments: batch.comments,
+                bottleDate: batch.bottleDate,
+                endDate: batch.endDate,
+                recipeId: batch.recipeId,
+                startDate: batch.startDate,
             });
+        });
+          
     }
+
+   
 
 
 
@@ -83,8 +66,8 @@ export default class EditBatchForm extends Component {
                 <h1 className="recipe-page-title">Edit Batch</h1>
                 <div className="newRecipeForm">
                     <form className="recipeForm">
-                        <div className="form-group">
-                            <label htmlFor="originalGravity">Original Gravity: {this.state.originalGravity}</label>
+                        {/* <div className="form-group"> */}
+                            {/* <label htmlFor="originalGravity">Original Gravity: {this.props.recipe.originalGravity}</label> */}
                             {/* <div>
                             <label htmlFor="originalGravity">Current Gravity: </label></div>
                             <input
@@ -95,12 +78,12 @@ export default class EditBatchForm extends Component {
                                 id="originalGravity"
                                 placeholder=""
                             /> */}
-                        </div>
+                        {/* </div>
+                        <label htmlFor="bottleDate" id="bottleDate">Original Bottle Date: {this.props.batch.bottleDate}</label>
                         <fieldset>
                         <label htmlFor="fermentationTime">Add Weeks of Fermentation Time:</label>
                         <select id="fermentationTime" className="form-control"
                          onChange={this.handleFieldChange}
-                         value={this.state.fermentationTime}
                         >
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -113,7 +96,7 @@ export default class EditBatchForm extends Component {
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                        </fieldset>
+                        </fieldset> */}
                         <div className="form-group">
                             <fieldset>
                                 <label htmlFor="comments">Batch Comments:</label>

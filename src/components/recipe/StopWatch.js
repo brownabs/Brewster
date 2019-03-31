@@ -8,7 +8,7 @@ export default class StopWatch extends Component {
     isOn: false,
     start: 0,
     timeStamp: "",
-    batchId: this.props.match.params.batch.id,
+    batchId: "",
     commentDescription: "",
   }
 
@@ -129,8 +129,7 @@ export default class StopWatch extends Component {
         <div className="comments">
         <h5>Brew Day Comments:</h5>
                     {
-                        this.props.comments.filter(comment => 
-                          comment.batchId === parseInt(this.props.match.params.batch.id))
+                        this.props.comments
                         .map(comment =>
                                 <section >
                                     <div key={comment.id}>

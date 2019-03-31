@@ -24,7 +24,7 @@ export default class Batch extends Component {
                                 type="button"
                                 className="editBatchButton"
                                 onClick={() => {
-                                    this.props.history.push(`/batches/${this.props.batch.recipe.id}/edit`)
+                                    this.props.history.push(`/batches/${this.props.batch.id}/edit`)
                                 }}
                             ><i className="fas fa-edit"></i>
                             </button>

@@ -5,6 +5,7 @@ export default Object.create(APIManager, {
   desiredData: {
     value: "batches?_expand=recipe&_expand=recipe"
   },
+
   deleteBatch: {
     value: function (id) {
       return fetch(`${Settings.remoteURL}/batches/${id}`, {
