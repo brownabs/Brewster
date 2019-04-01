@@ -64,18 +64,14 @@ class ApplicationViews extends Component {
         return RecipeManager.getAll()
       })
       .then(recipes => this.setState({ recipes: recipes }))
-  }
+  } 
 
-  // editBatch = batch => {
-  //   return BatchManager.put(batch)
-  //     .then(() => {
-  //       return BatchManager.getAll()
-  //     })
-  //     .then(batches => this.setState({ batches: batches }))
-  // }
-
-  editBatch = id => {
-    return BatchManager.editBatch(id).then(batches => {
+  patchBatch = id => {
+    return BatchManager.patch(id)
+    .then(() => {
+      return BatchManager.getAll()
+    })
+    .then(batches => {
       this.setState({ batches: batches });
     })
   }
@@ -180,6 +176,7 @@ class ApplicationViews extends Component {
             deleteBatch={this.deleteBatch}
             addComment={this.addComment}
             comments={this.state.comments}
+            addTimeToBottleDate={this.addTimeToBottleDate}
           />
         }} />
 
@@ -187,9 +184,8 @@ class ApplicationViews extends Component {
           return <EditBatchForm  {...props}
             recipes={this.state.recipes}
             batches={this.state.batches}
-            editBatch={this.editBatch}
+            patchBatch={this.patchBatch}
             patchRecipe={this.patchRecipe}
-
           />
         }} />
 

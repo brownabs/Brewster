@@ -73,4 +73,10 @@
 .commentDescription {
     height: 200px;
     width: 300px;
+    border-radius: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+}
+
+.batchComments {
+ margin-top: 20px
 }

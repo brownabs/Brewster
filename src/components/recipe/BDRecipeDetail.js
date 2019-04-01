@@ -67,7 +67,7 @@ export default class BDRecipeDetail extends Component {
                         <h5 className="brewday-card-further-description">Alcohol Content: {recipe.alcoholContent}</h5>
                         <h5 className="brewday-card-further-description">Fermentation Time: {recipe.fermentationTime} weeks</h5>
                         <h5 className="brewday-card-further-description">Yields: {recipe.yield}</h5>
-                        <div>
+                        <div >
                             
 
                             <StopWatch    {...this.props}

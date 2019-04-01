@@ -6,6 +6,19 @@ export default Object.create(APIManager, {
     value: "batches?_expand=recipe&_expand=recipe"
   },
 
+  patch: {
+    value: function (obj, id) {
+      return fetch(`${Settings.remoteURL}/batches/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+      })
+        .then(r => r.json())
+    }
+  },
+
   deleteBatch: {
     value: function (id) {
       return fetch(`${Settings.remoteURL}/batches/${id}`, {

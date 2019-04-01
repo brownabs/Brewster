@@ -36,7 +36,7 @@ export default class EditBatchForm extends Component {
             startDate: this.state.startDate,
         }
 
-        this.props.editBatch(editedBatch)
+        this.props.patchBatch(editedBatch)
         .then(() => this.props.history.push("/batches"))
 
     }
@@ -66,23 +66,14 @@ export default class EditBatchForm extends Component {
                 <h1 className="recipe-page-title">Edit Batch</h1>
                 <div className="newRecipeForm">
                     <form className="recipeForm">
-                        {/* <div className="form-group"> */}
-                            {/* <label htmlFor="originalGravity">Original Gravity: {this.props.recipe.originalGravity}</label> */}
-                            {/* <div>
-                            <label htmlFor="originalGravity">Current Gravity: </label></div>
-                            <input
-                                type="text"
-                                required
-                                className="form-control"
-                                onChange={this.handleFieldChange}
-                                id="originalGravity"
-                                placeholder=""
-                            /> */}
-                        {/* </div>
-                        <label htmlFor="bottleDate" id="bottleDate">Original Bottle Date: {this.props.batch.bottleDate}</label>
+                        <div className="form-group"> 
+                            {/* <label htmlFor="originalGravity">Original Gravity: {this.props.recipes.originalGravity}</label> */}
+                           
+                        </div> 
+                        {/* <label htmlFor="bottleDate" id="bottleDate">Original Bottle Date: {this.props.batch.bottleDate}</label> */}
                         <fieldset>
-                        <label htmlFor="fermentationTime">Add Weeks of Fermentation Time:</label>
-                        <select id="fermentationTime" className="form-control"
+                        <label htmlFor="bottleDate">Add Weeks of Fermentation Time:</label>
+                        <select id="bottleDate" className="form-control"
                          onChange={this.handleFieldChange}
                         >
                             <option value="1">1</option>
@@ -96,8 +87,8 @@ export default class EditBatchForm extends Component {
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                        </fieldset> */}
-                        <div className="form-group">
+                        </fieldset>
+                        {/* <div className="form-group">
                             <fieldset>
                                 <label htmlFor="comments">Batch Comments:</label>
                                 <textarea 
@@ -106,11 +97,11 @@ export default class EditBatchForm extends Component {
                                 id="comments"
                                 placeholder="" rows="4" cols="50"></textarea>
                             </fieldset>
-                        </div>
+                        </div> */}
                         <button
                             type="submit"
                             onClick={this.updateExistingBatch}
-                            className="btn btn-dark"
+                            className="submitBottleDateButton"
                         >
                             Submit
           </button>

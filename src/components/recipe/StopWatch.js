@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 
+
 export default class StopWatch extends Component {
 
   state = {
@@ -50,10 +51,10 @@ export default class StopWatch extends Component {
   constructNewComment = evt => {
 
     evt.preventDefault();
-
+  
     const comment = {
       commentDescription: this.state.commentDescription,
-      timeStamp: this.state.timeStamp,
+      timeStamp: this.state.time,
       batchId: this.state.batchId,
       id: this.state.id
     }
@@ -62,12 +63,9 @@ export default class StopWatch extends Component {
       .addComment(comment)
       .then(() => {
         this.setState({
-            commentDescription: "",
-            timeStamp: "",
-            batchId: "",
-            id: ""
+          commentDescription: "",
         })
-    })
+      })
   }
 
 
@@ -89,8 +87,10 @@ export default class StopWatch extends Component {
     //3600000 doesn't need a modulus if <100 hours
     let hours = ("0" + Math.floor(time / 3600000)).slice(-2);
 
+
     return (
       <React.Fragment>
+        <div className="StopWatchContainer">
         <div className="Stopwatch">
           <div className="Stopwatch-header">Boil Timer</div>
           <div className="Stopwatch-display">
@@ -127,20 +127,21 @@ export default class StopWatch extends Component {
           )}
         </div>
         <div className="comments">
-        <h5>Brew Day Comments:</h5>
-                    {
-                        this.props.comments
-                        .map(comment =>
-                                <section >
-                                    <div key={comment.id}>
-                                        <h5> {comment.commentDescription}
-                                        </h5>
-                                    </div>
-                                </section>
+          <h5>Brew Day Comments:</h5>
+          {
+            this.props.comments
+              .map(comment => 
+                <section >
+                  <div key={comment.id}>
+                    <h5> {comment.commentDescription} : {((comment.timeStamp / 1000))} seconds 
+                    </h5>
+                  </div>
+                </section>
 
-                            )
-                    }
-                </div>
+              )
+          }
+        </div>
+        </div>
       </React.Fragment>
     )
   }
