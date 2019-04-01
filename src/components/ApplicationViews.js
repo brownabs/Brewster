@@ -9,6 +9,7 @@ import CommentManager from '../modules/CommentManager'
 
 import RecipeList from './recipe/RecipeList'
 import BatchList from './batch/BatchList'
+import CompletedBatchList from './batch/CompletedBatches'
 
 import RecipeForm from './recipe/RecipeForm'
 import IngredientForm from './recipe/IngredientForm'
@@ -88,6 +89,10 @@ class ApplicationViews extends Component {
     BatchManager.post(batch)
       .then(() => BatchManager.getAll())
       .then(batches => this.setState({ batches: batches }))
+
+  completeBatch = () => {
+    console.log("batch completed")
+  }
 
 
   addComment = comment =>
@@ -174,9 +179,11 @@ class ApplicationViews extends Component {
             addBatch={this.addBatch}
             recipes={this.state.recipes}
             deleteBatch={this.deleteBatch}
+            completeBatch={this.completeBatch}
             addComment={this.addComment}
             comments={this.state.comments}
             addTimeToBottleDate={this.addTimeToBottleDate}
+            patchBatch={this.patchBatch}
           />
         }} />
 
@@ -186,6 +193,12 @@ class ApplicationViews extends Component {
             batches={this.state.batches}
             patchBatch={this.patchBatch}
             patchRecipe={this.patchRecipe}
+          />
+        }} />
+
+        <Route exact path="/completedbatches" render={(props) => {
+          return <CompletedBatchList {...props}
+            batches={this.state.batches}
           />
         }} />
 

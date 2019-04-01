@@ -6,6 +6,7 @@ export default class EditBatchForm extends Component {
     state = {
 
         bottleDate: "",
+        endDate: ""
     }
 
     handleFieldChange = evt => {
@@ -20,6 +21,7 @@ export default class EditBatchForm extends Component {
         const editedBatch = {
 
             bottleDate: moment(this.state.bottleDate).format('LL'),
+            endDate: moment(this.state.bottleDate).add(2, 'weeks').format('LL'),
         }
 
         this.props.patchBatch(editedBatch, id)
@@ -58,16 +60,6 @@ export default class EditBatchForm extends Component {
                                 value={this.state.bottleDate}
                             />
                         </div>
-                        {/* <div className="form-group">
-                            <fieldset>
-                                <label htmlFor="comments">Batch Comments:</label>
-                                <textarea 
-                               className="form-control" 
-                               onChange={this.handleFieldChange}
-                                id="comments"
-                                placeholder="" rows="4" cols="50"></textarea>
-                            </fieldset>
-                        </div> */}
                         <button
                             type="submit"
                             className="submitBottleDateButton"
@@ -77,7 +69,7 @@ export default class EditBatchForm extends Component {
                             }
                         >
                             Submit
-          </button>
+                        </button>
                     </form>
                 </div>
             </React.Fragment>

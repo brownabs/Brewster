@@ -23,9 +23,9 @@ class Nav extends Component {
           <li className="nav-item">
             <Link className="nav-link text-white" to="/batches">  <h5 className="siteName">Batches</h5></Link>
           </li>
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <Link className="nav-link text-white" to="/completedbatches"> <h5 className="siteName">Completed</h5></Link>
-          </li> */}
+          </li>
         </ul>
         <button
           type="button"

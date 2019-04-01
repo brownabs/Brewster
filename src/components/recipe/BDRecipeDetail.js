@@ -18,6 +18,8 @@ export default class BDRecipeDetail extends Component {
         startDate: "",
         endDate: "",
         fermentationTime: "",
+        isComplete: false,
+        newComments: []
     }
 
     handleFieldChange = evt => {
@@ -34,6 +36,7 @@ export default class BDRecipeDetail extends Component {
             id: this.state.id,
             userId: this.state.userId,
             recipeId: this.state.recipeId,
+            isComplete: this.state.isComplete,
             startDate: moment().format('LL'),
             bottleDate: moment().add(fermentationTime, 'weeks').format('LL'),
             endDate: moment().add(fermentationTime, 'weeks').add(2, 'weeks').format('LL'),

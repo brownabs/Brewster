@@ -11,6 +11,7 @@ export default class BatchList extends Component {
                 <section className="batches">
                 {
                     this.props.batches
+                        .filter(batch => batch.isComplete === false)
                         .map(batch =>
                             <div className="batch">
                                  <Batch key={batch.id} 
@@ -19,6 +20,8 @@ export default class BatchList extends Component {
                                     recipes={this.props.recipes}
                                     users={this.props.users}
                                     deleteBatch={this.props.deleteBatch}
+                                    completeBatch={this.props.completeBatch}
+                                    patchBatch={this.props.patchBatch}
                             />
                             </div>
                         )
