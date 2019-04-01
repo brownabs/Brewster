@@ -20,7 +20,7 @@ export default class RecipeDetail extends Component {
   
         const recipe = this.props.recipes.find(r =>
             r.id === parseInt(this.props.match.params.recipeId))
-            || { id: 404, name: "404", description: "RECIPE NOT FOUND" }
+            || { }
             console.log(recipe)
 
 
@@ -31,7 +31,7 @@ export default class RecipeDetail extends Component {
                         <img src={beer} className="beerMug" alt="beer mug" /><h4 className="recipe-detail-card-name">{recipe.name}</h4><img src={beer} className="beerMug" alt="beer mug" />
 
                     </div>
-                    <h6 className="recipe-detail-card-description">Description: {recipe.description}</h6>
+                    <h6 className="recipe-detail-card-description">{recipe.description}</h6>
                     <h6 className="recipe-detail-card-further-description">Beer Style: {recipe.beerStyle}</h6>
                     <h6 className="recipe-detail-card-further-description">Original Gravity: {recipe.originalGravity}</h6>
                     <h6 className="recipe-detail-card-further-description">Alcohol Content:{recipe.alcoholContent}</h6>
@@ -48,7 +48,7 @@ export default class RecipeDetail extends Component {
                         )
                     }
                     <h6 className="recipe-detail-card-further-description">Recipe Instructions: </h6>
-                    <a href={recipe.recipeInstructions} className="recipe-card-further-description">{recipe.recipeInstructions}</a>
+                    <h6 href={recipe.recipeInstructions} className="recipe-card-further-description">{recipe.recipeInstructions}</h6>
                     <h6 className="recipe-detail-card-further-description">Comments: {recipe.comments}</h6>
                     <button
                         onClick={() => this.props.history.push(`/brewday/${recipe.id}`)}

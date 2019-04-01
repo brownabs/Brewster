@@ -53,12 +53,38 @@ body {
     box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
     font-size: 14px
 }
+
+.stopwatchbutton {
+    border-radius: 5px;
+    margin: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+    font-size: 14px
+}
+
 .buttons {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     align-content: center;
 }
+
+.Stopwatch-header {
+    font-size: 25px
+}
+
+.Stopwatch{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* width: 200px; */
+    border: 1.5px solid grey;
+    border-radius: 7px;
+    box-shadow:  4px 4px 4px rgba(85, 16, 16, 0.7);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
 .recipes {
     display: flex;
     flex-direction: row;
@@ -184,4 +210,68 @@ body {
     margin-top: 60px;
     margin-bottom: 10px;
     padding: 10px;
+}
+#recipeInstructions {
+    overflow: scroll;
+}
+
+#comments {
+    overflow: scroll;
+}
+
+.recipe-card-further-description {
+    height: 300px;
+    width: 450px;
+    padding: 30px;
+    margin: 10px;
+    border: 1.5px solid grey;
+    overflow: scroll;
+    border-radius: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+
+}
+
+.recipe-detail-card-description {
+    width: 600px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center
+}
+
+.recipe-detail-card-further-description {
+    overflow: scroll;
+
+}
+
+.stopwatchandinstructions {
+    display: flex;
+    justify-content: center;
+    flex-direction: row
+}
+
+.submitBottleDateButton {
+    margin: 10px;
+    border-radius: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+}
+
+.newBatchForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+.batchForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; 
+}
+
+.displayBottleDate {
+ display: flex;
+ justify-content: space-evenly;
+ flex-direction: row;
+ align-content: center;
 }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Batch from './BatchCard';
 
-
-
 export default class BatchList extends Component {
     render() {
 
@@ -18,8 +16,9 @@ export default class BatchList extends Component {
                                  <Batch key={batch.id} 
                                    batch={batch}
                                    {...this.props} 
-                                    recipe={this.props.recipe}
+                                    recipes={this.props.recipes}
                                     users={this.props.users}
+                                    deleteBatch={this.props.deleteBatch}
                             />
                             </div>
                         )
