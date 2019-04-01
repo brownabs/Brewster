@@ -66,8 +66,8 @@ class ApplicationViews extends Component {
       .then(recipes => this.setState({ recipes: recipes }))
   } 
 
-  patchBatch = id => {
-    return BatchManager.patch(id)
+  patchBatch = (editedBatch, id)=> {
+    return BatchManager.patch(editedBatch, id)
     .then(() => {
       return BatchManager.getAll()
     })

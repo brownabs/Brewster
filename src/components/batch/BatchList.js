@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Batch from './BatchCard';
 
-//i changed recipe to recipes
-
 export default class BatchList extends Component {
     render() {
 
