@@ -11,6 +11,7 @@ export default class StopWatch extends Component {
     timeStamp: "",
     batchId: "",
     commentDescription: "",
+    
   }
 
   //will be called when the timer is started or resumed
@@ -130,6 +131,7 @@ export default class StopWatch extends Component {
           <h5>Brew Day Comments:</h5>
           {
             this.props.comments
+             
               .map(comment => 
                 <section >
                   <div key={comment.id}>
