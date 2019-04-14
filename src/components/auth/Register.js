@@ -38,7 +38,7 @@ import './Register.css'
             sessionStorage.setItem("credentials", parseInt(user.id))
             this.props.setAuth()
           })
-          .then(this.props.history.push('./'))
+          .then(this.props.history.push('/GettingStarted'))
         }
       })
     } else {

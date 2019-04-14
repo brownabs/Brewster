@@ -83,7 +83,7 @@ export default class BDRecipeDetail extends Component {
 
                         </div>
 
-                        <h5 href={recipe.recipeInstructions} className="brewday-instructions-card-further-description">Instructions: {recipe.recipeInstructions}</h5>
+                        <h5 className="brewday-instructions-card-further-description">Instructions: {recipe.recipeInstructions}</h5>
 
                         <button
                             type="submit"

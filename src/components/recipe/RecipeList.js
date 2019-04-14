@@ -12,7 +12,6 @@ export default class RecipeList extends Component {
             <React.Fragment>
 
                 <h1 className="recipe-page-title">Recipes</h1>
-
                 <div className="recipeButton">
                     <button type="button"
                         className="addRecipe"
@@ -28,16 +27,16 @@ export default class RecipeList extends Component {
                     {this.props.recipes.filter(recipe => recipe.userId === userId)
                         .map(recipe =>
                             <div className="recipe" key={`r--${recipe.id}`}>
-                            <Recipe  recipe={recipe}
-                                    {...this.props} 
+                                <Recipe recipe={recipe}
+                                    {...this.props}
                                     recipeIngredients={this.props.recipeIngredients}
                                     users={this.props.users}
                                     deleteRecipe={this.props.deleteRecipe}
                                     editRecipe={this.props.editRecipe}
                                     addBatch={this.props.addBatch}
                                     deleteBatch={this.props.deleteBatch}
-                                    history={this.props.history} 
-                                    />
+                                    history={this.props.history}
+                                />
                             </div>
 
                         )

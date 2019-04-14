@@ -9,12 +9,15 @@ export default class CompletedBatchList extends Component {
 
     render() {
 
+        const userId = parseInt(sessionStorage.getItem("credentials"))
+
         return (
             <React.Fragment>
                 <h1 className="batch-page-title">Completed Batches</h1>
                 <section className="batches">
                 {
                     this.props.batches
+                        .filter(batch => batch.userId === userId)
                         .filter(batch => batch.isComplete === true)
                         .map(batch =>
                   
@@ -35,3 +38,4 @@ export default class CompletedBatchList extends Component {
         )
     }
 }
+

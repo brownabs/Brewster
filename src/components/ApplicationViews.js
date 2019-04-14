@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Route } from 'react-router-dom'
 
+import GettingStarted from './auth/GettingStarted'
+
 import UserManager from '../modules/UserManager'
 import RecipeManager from '../modules/RecipeManager'
 import BatchManager from '../modules/BatchManager'
@@ -17,7 +19,6 @@ import EditBatchForm from './batch/EditBatchForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
 
 import RecipeDetail from './recipe/RecipeDetail'
-// import BatchDetail from './batch/BatchDetail'
 import BDRecipeDetail from './recipe/BDRecipeDetail'
 
 
@@ -123,6 +124,10 @@ class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
+           <Route exact path="/GettingStarted" render={(props) => {
+          return <GettingStarted
+          />
+        }} />
         <Route exact path="/" render={(props) => {
           return <RecipeList {...props}
             recipes={this.state.recipes}
