@@ -1,17 +1,14 @@
 .registerForm {
     margin: 20px;
     padding: 10px;
-    border: 1px brown solid;
-    background-color:  #F7E7A7;
+    border: 1px black solid;
     border-radius: 10px;
     box-shadow: 10px 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 500px;
-
-
+    width: 500px
 }
 
 .registerPageTitle {
@@ -21,37 +18,31 @@
     font-family: 'Fredericka the Great', serif;
 
 }
-.registerLandingPage {
-    margin: 50px;
-    border: 10px solid black;
-    background-color: #F7E7A7
- }
  
  .registerInnerLandingPage {
-     background-color: brown;
-     border: 10px black solid;
+     background-color: white;
      display: flex;
      justify-content: center;
      flex-direction: row;
      align-items: center;
      margin: 20px;
-     border-radius: 10px
+     border-radius: 10px;
  }
  
 .first_name {
-    border: 1px brown solid;
+    border: 1px black solid;
     border-radius: 10px;
     margin: 5px
 }
 
 .last_name {
-    border: 1px brown solid;
+    border: 1px black solid;
     border-radius: 10px;
     margin: 5px
 }
 
 .email {
-    border: 1px brown solid;
+    border: 1px black solid;
     border-radius: 10px;
     margin: 5px
 }  

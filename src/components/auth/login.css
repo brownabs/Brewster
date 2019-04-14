@@ -36,23 +36,22 @@
     font-family: 'Fredericka the Great', serif;
 
 }
-
+/* 
 .icon--beer {
-height: 600px;
-width: 100%;
+height: 500px;
+width: 600px;
 border-radius: 15px;
 padding: 10px;
 box-shadow: 5px 5px;
-}
+} */
 
 .landingPage {
    margin: 50px;
-   border: 10px solid black;
+   /* border: 10px solid black; */
    background-color: white
 }
 
 .innerLandingPage {
-    /* background-color: brown; */
     display: flex;
     justify-content: center;
     flex-direction: column;
