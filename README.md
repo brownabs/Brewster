@@ -13,12 +13,12 @@ Main functionality:
 6. Delete Batches
 7. Complete Batches
 
-##Details
+****DETAILS****
 
 Brewster is a front-end application built with React, Moment.js, and CSS. All data is user-generated and stored in a json-server database.
 
 
-##To Clone
+****TO CLONE****
 
 Clone the repo to your computer and run npm install in the directory
 
