@@ -34,8 +34,7 @@ run npm start
 This will run the app in the development mode.
 Open http://localhost:3000 to view it in the browser. Data will be served from the main API hosted online.
 
-
-![Demonstration Video](/src/components/auth/recording.mov)
+Upon Registration, Brewster will display a Getting Start page that includes a quick video recording of how to use the application. 
 
 
 
