@@ -1,8 +1,9 @@
+
 # Welcome to Brewster 🍻
 
 As a home brewer, I would often lose track of my notes from previous recipes, brewing days, fermentation times, bottle dates, and when my beer was finally ready to drink. I was able to combine my love for home brewing with my knowledge of React, Moment.js and CSS for styling. Brewster contains fully implemented CRUD for recipes and batches, and a boil timer for brewing day.
 
-Main functionality:
+****Main functionality:****
 
 1. Create beer recipes
 2. View recipe details
@@ -33,6 +34,8 @@ run npm start
 This will run the app in the development mode.
 Open http://localhost:3000 to view it in the browser. Data will be served from the main API hosted online.
 
+
+![Demonstration Video](/src/components/auth/recording.mov)
 
 
 
