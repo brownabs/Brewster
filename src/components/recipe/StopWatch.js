@@ -135,7 +135,7 @@ export default class StopWatch extends Component {
               .map(comment => 
                 <section >
                   <div key={comment.id}>
-                    <h5> {comment.commentDescription} : {((comment.timeStamp / 1000))} seconds 
+                    <h5> {comment.commentDescription} :  {((comment.timeStamp / 60000))} : {((comment.timeStamp / 1000))} seconds 
                     </h5>
                   </div>
                 </section>
