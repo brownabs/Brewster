@@ -22,7 +22,8 @@
     font-size: 20px;
     margin-top: 40px;
     margin-left: 150px;
-    margin-right: 150px
+    margin-right: 150px;
+    margin-bottom: 39px;
 }
 
 .gssubdetails {
@@ -31,9 +32,24 @@
     font-size: 20px;
 }
 
+.gettingStartedButton {
+    display: flex;
+    justify-content: center; 
+}
+
+.getting-button {
+    border-radius: 5px;
+    margin: 7px;
+    box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
+    font-size: 14px
+}
+
+
+
 .video {
     display: flex;
     justify-content: center;
     width: 80%;
     margin: auto;
+    margin-bottom: 30px
 }

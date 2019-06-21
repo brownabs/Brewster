@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 
+import moment from 'moment'
 
 export default class StopWatch extends Component {
 
@@ -10,8 +11,8 @@ export default class StopWatch extends Component {
     start: 0,
     timeStamp: "",
     batchId: "",
+    userId: parseInt(sessionStorage.getItem("credentials")),
     commentDescription: "",
-    
   }
 
   //will be called when the timer is started or resumed
@@ -52,21 +53,20 @@ export default class StopWatch extends Component {
   constructNewComment = evt => {
 
     evt.preventDefault();
-  
+
+    // let commentTime = new Date()
+    // console.log(commentTime)
     const comment = {
       commentDescription: this.state.commentDescription,
-      timeStamp: this.state.time,
+      timeStamp: moment().format('LLLL'),
       batchId: this.state.batchId,
+      userId: this.state.userId,
       id: this.state.id
     }
 
     this.props
-      .addComment(comment)
-      .then(() => {
-        this.setState({
-          commentDescription: "",
-        })
-      })
+      .storeComment(comment)
+    document.querySelector("#commentDescription").value = ""
   }
 
 
@@ -92,57 +92,56 @@ export default class StopWatch extends Component {
     return (
       <React.Fragment>
         <div className="StopWatchContainer">
-        <div className="Stopwatch">
-          <div className="Stopwatch-header">Boil Timer</div>
-          <div className="Stopwatch-display">
-            {hours} : {minutes} : {seconds} : {centiseconds}
-          </div>
-          {this.state.isOn === false && this.state.time === 0 && (
-            <button className="stopwatchbutton" onClick={this.startTimer}>Start</button>
-          )}
-          {this.state.isOn === true && (
-            <button className="stopwatchbutton" onClick={this.stopTimer}>Stop</button>
-          )}
-          {this.state.isOn === false && this.state.time > 0 && (
-            <button className="stopwatchbutton" onClick={this.startTimer}>Resume</button>
-          )}
-          {this.state.isOn === false && this.state.time > 0 && (
-            <button className="stopwatchbutton" onClick={this.resetTimer}>Reset</button>
-          )}
-
-          {this.state.isOn === false && this.state.time > 0 && (
-            <div className="batchComments">
-              <fieldset>
-                <textarea
-                  type="text"
-                  required
-                  className="commentDescription"
-                  onChange={this.handleFieldChange}
-                  id="commentDescription"
-                  placeholder="" rows="4" cols="50"></textarea>
-              </fieldset>
-
-              <button className="stopwatchbutton" onClick={this.constructNewComment}>Add Comment</button>
+          <div className="Stopwatch">
+            <div className="Stopwatch-header">Boil Timer</div>
+            <div className="Stopwatch-display">
+              {hours} : {minutes} : {seconds} : {centiseconds}
             </div>
+            {this.state.isOn === false && this.state.time === 0 && (
+              <button className="stopwatchbutton" onClick={this.startTimer}>Start</button>
+            )}
+            {this.state.isOn === true && (
+              <button className="stopwatchbutton" onClick={this.stopTimer}>Stop</button>
+            )}
+            {this.state.isOn === false && this.state.time > 0 && (
+              <button className="stopwatchbutton" onClick={this.startTimer}>Resume</button>
+            )}
+            {this.state.isOn === false && this.state.time > 0 && (
+              <button className="stopwatchbutton" onClick={this.resetTimer}>Reset</button>
+            )}
 
-          )}
-        </div>
-        <div className="comments">
-          <h5>Brew Day Comments:</h5>
-          {
-            this.props.comments
-             
-              .map(comment => 
-                <section >
-                  <div key={comment.id}>
-                    <h5> {comment.commentDescription} :  {((comment.timeStamp / 60000))} : {((comment.timeStamp / 1000))} seconds 
-                    </h5>
-                  </div>
-                </section>
+            {this.state.isOn === false && this.state.time > 0 && (
+              <div className="batchComments">
+                <fieldset>
+                  <textarea
+                    type="text"
+                    required
+                    className="commentDescription"
+                    onChange={this.handleFieldChange}
+                    id="commentDescription"
+                    placeholder="" rows="4" cols="50"></textarea>
+                </fieldset>
 
-              )
-          }
-        </div>
+                <button className="stopwatchbutton" onClick={this.constructNewComment}>Add Comment</button>
+              </div>
+
+            )}
+          </div>
+          <div className="comments">
+            <h5>Brew Day Comments:</h5>
+            {
+              this.props.newComments
+                .map(comment =>
+                  <section >
+                    <div key={comment.id}>
+                    <h5> {comment.commentDescription}</h5>
+                      <span className="commentTime"> {comment.timeStamp} </span>
+                    </div>
+                  </section>
+
+                )
+            }
+          </div>
         </div>
       </React.Fragment>
     )

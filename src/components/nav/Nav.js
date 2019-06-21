@@ -3,7 +3,9 @@ import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./nav.css"
 class Nav extends Component {
+
   logout = () => {
+
     sessionStorage.clear("credentials")
     this.props.setAuth()
   }
@@ -26,13 +28,15 @@ class Nav extends Component {
           <li className="nav-item">
             <Link className="nav-link text-white" to="/completedbatches"> <h5 className="siteName">Completed</h5></Link>
           </li>
-        </ul>
+        </ul><Link to="/">
         <button
           type="button"
           className="logoutButton"
           onClick={this.logout}>
           Logout
         </button>
+        </Link>
+       
       </nav>
       </div>
     )

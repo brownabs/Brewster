@@ -6,6 +6,8 @@ import gif from './bottling-animated.gif'
 import StopWatch from './StopWatch'
 
 
+
+
 export default class BDRecipeDetail extends Component {
 
 
@@ -19,7 +21,7 @@ export default class BDRecipeDetail extends Component {
         endDate: "",
         fermentationTime: "",
         isComplete: false,
-        newComments: []
+        newComments: [],
     }
 
     handleFieldChange = evt => {
@@ -44,15 +46,63 @@ export default class BDRecipeDetail extends Component {
 
         }
 
+        // let batchId = sessionStorage.getItem("batchId")
+        // console.log(batchId)
+
         this.props.addBatch(batch)
+            .then(() => {
+                let batchId = sessionStorage.getItem("batchId")
+                return batchId
+            })
+            .then((batchId) => {
+
+                this.addBatchComment(batchId)
+            })
             .then(() => this.props.history.push("/batches"))
     }
+
+    storeComment = (comment) => {
+
+        let newComments = [...this.state.newComments]
+        console.log(newComments)
+        newComments.push(comment)
+        this.setState({
+            newComments
+        })
+
+        return ""
+    }
+
+
+
+    addBatchComment = (batchId) => {
+
+
+        console.log(batchId)
+        this.state.newComments.forEach(comment => {
+            const theComment = {
+                timeStamp: comment.timeStamp,
+                batchId: parseInt(batchId),
+                userId: comment.userId,
+                commentDescription: comment.commentDescription
+            }
+            this.props.addBatchComments(theComment)
+        })
+
+
+
+        console.log("addBatchComments")
+
+    }
+
 
     render() {
 
         const recipe = this.props.recipes.find(r =>
             r.id === parseInt(this.props.match.params.recipeId))
             || {}
+
+
 
         return (
 
@@ -63,27 +113,31 @@ export default class BDRecipeDetail extends Component {
                 </div>
                 <div key={recipe.id} className="recipe-card">
                     <div className="brewday-card-body">
-                        <h4 className="recipe-card-name">{recipe.name}</h4>
-                        <h5 className="brewday-card-further-description">Description: {recipe.description}</h5>
-                        <h5 className="brewday-card-further-description">Beer Style: {recipe.beerStyle}</h5>
-                        <h5 className="brewday-card-further-description">Original Gravity:  {recipe.originalGravity}</h5>
-                        <h5 className="brewday-card-further-description">Alcohol Content: {recipe.alcoholContent}</h5>
-                        <h5 className="brewday-card-further-description">Fermentation Time: {recipe.fermentationTime} weeks</h5>
-                        <h5 className="brewday-card-further-description">Yields: {recipe.yield}</h5>
-                        <div >
-                            
+                        <div className="stopWatchComponent" >
+
+                            <h4 className="recipe-card-name">{recipe.name}</h4>
+                            <h5 className="brewday-card-further-description">Description: {recipe.description}</h5>
+                            <h5 className="brewday-card-further-description">Beer Style: {recipe.beerStyle}</h5>
+                            <h5 className="brewday-card-further-description">Original Gravity:  {recipe.originalGravity}</h5>
+                            <h5 className="brewday-card-further-description">Alcohol Content: {recipe.alcoholContent}</h5>
+                            <h5 className="brewday-card-further-description">Fermentation Time: {recipe.fermentationTime} weeks</h5>
+                            <h5 className="brewday-card-further-description">Yields: {recipe.yield}</h5>
+
+                        </div>
+                        <h3 className="brewday-card-instruction-further-description">Instructions</h3>
+
+                        <h5 className="brewday-instructions-card-further-description"> {recipe.recipeInstructions}</h5>
 
                             <StopWatch    {...this.props}
                                 batches={this.props.batches}
                                 comments={this.props.comments}
                                 recipes={this.props.recipes}
-                                addComment={this.props.addComment}
+                                addBatchComments={this.props.addBatchComments}
+                                storeComment={this.storeComment}
                                 history={this.props.history}
+                                newComments={this.state.newComments}
+
                             />
-
-                        </div>
-
-                        <h5 className="brewday-instructions-card-further-description">Instructions: {recipe.recipeInstructions}</h5>
 
                         <button
                             type="submit"

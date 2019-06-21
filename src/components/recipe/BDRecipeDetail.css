@@ -54,9 +54,9 @@
 }
 
 .brewday-instructions-card-further-description {
-    height: 300px;
-    width: 450px;
-    padding: 30px;
+    height: 400px;
+    width: 500px;
+    padding: 50px;
     margin: 10px;
     border: 1.5px solid grey;
     overflow: scroll;
@@ -64,6 +64,12 @@
     box-shadow:  2px 2px 2px rgba(85, 16, 16, 0.7);
 }
 
+
+
+.brewday-instruction-card-further-description {
+    font-size: 25px
+
+}
 .batchComments {
     display: flex;
     justify-content: center;
@@ -80,3 +86,9 @@
 .batchComments {
  margin-top: 20px
 }
+
+.recipe-card-name {
+    display: flex;
+    justify-content: center
+}
+
