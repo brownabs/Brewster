@@ -19,8 +19,10 @@ export default class BatchDetail extends Component {
                 c.batchId === parseInt(this.props.match.params.batchId))
             || {}
 
-        console.log(comment)
+      const batchId = parseInt(this.props.match.params.batchId)
 
+      console.log(batchId)
+          
 
         return (
             <React.Fragment>
@@ -31,6 +33,7 @@ export default class BatchDetail extends Component {
                 {
                     this.props.comments
                         .filter(comment => comment.userId === userId)
+                        .filter(comment => comment.batchId === batchId)                        
                         .map((comment) =>
                             console.log(comment) ||
                             <section >

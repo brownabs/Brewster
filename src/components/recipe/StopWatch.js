@@ -53,9 +53,7 @@ export default class StopWatch extends Component {
   constructNewComment = evt => {
 
     evt.preventDefault();
-
-    // let commentTime = new Date()
-    // console.log(commentTime)
+   
     const comment = {
       commentDescription: this.state.commentDescription,
       timeStamp: moment().format('LLLL'),
@@ -71,7 +69,6 @@ export default class StopWatch extends Component {
 
 
   render() {
-
 
     const { time } = this.state;
     //Math.floor() returns the largest integer less than or equal to a given number
