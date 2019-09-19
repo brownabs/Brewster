@@ -9,9 +9,7 @@ export default class Batch extends Component {
 
     state = {
         isComplete: false,
-    };
-
-
+    }
 
 completeBatch = () => {
     const editedBatch = {

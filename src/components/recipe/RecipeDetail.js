@@ -8,8 +8,6 @@ import beer from '../auth/beerCartoon.jpg'
 export default class RecipeDetail extends Component {
    
 
-
-
     render() {
 
   
