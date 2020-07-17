@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import IsAuth from "./components/auth/IsAuth"
 import "bootstrap/dist/css/bootstrap.min.css"
-// import beer from './beerCartoon.jpg'
-// import './Brewster.css'
+
 
 
 

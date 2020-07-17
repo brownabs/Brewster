@@ -18,6 +18,7 @@ import IngredientForm from './recipe/IngredientForm'
 import EditBatchForm from './batch/EditBatchForm'
 import RecipeEditForm from './recipe/RecipeEditForm'
 
+import BatchDetail from './batch/BatchDetail'
 import RecipeDetail from './recipe/RecipeDetail'
 import BDRecipeDetail from './recipe/BDRecipeDetail'
 
@@ -66,16 +67,16 @@ class ApplicationViews extends Component {
         return RecipeManager.getAll()
       })
       .then(recipes => this.setState({ recipes: recipes }))
-  } 
+  }
 
-  patchBatch = (editedBatch, id)=> {
+  patchBatch = (editedBatch, id) => {
     return BatchManager.patch(editedBatch, id)
-    .then(() => {
-      return BatchManager.getAll()
-    })
-    .then(batches => {
-      this.setState({ batches: batches });
-    })
+      .then(() => {
+        return BatchManager.getAll()
+      })
+      .then(batches => {
+        this.setState({ batches: batches });
+      })
   }
 
   patchRecipe = (editedFermentationTime, id) => {
@@ -86,21 +87,39 @@ class ApplicationViews extends Component {
       .then(recipes => this.setState({ recipes: recipes }));
   }
 
-  addBatch = batch =>
-    BatchManager.post(batch)
+  addBatch = batch => {
+    return BatchManager.post(batch)
+      .then((response) => {
+        sessionStorage.setItem("batchId", response.id)
+        sessionStorage.getItem(response.id)
+      })
       .then(() => BatchManager.getAll())
       .then(batches => this.setState({ batches: batches }))
+  }
+
+
+  addBatchComments = comment => {
+    return CommentManager.post(comment)
+      .then(() => CommentManager.getAll())
+      .then(comments => this.setState({ comments: comments }))
+  }
+
+
+
+  addBatchId = (batchId) => {
+    return CommentManager.put(batchId)
+      .then(() => {
+        CommentManager.getAll();
+      })
+      .then(comments => this.setState({ comments: comments }));
+
+  }
+
 
   completeBatch = () => {
     console.log("batch completed")
   }
 
-
-  addComment = comment =>
-    CommentManager.post(comment)
-      .then(() => CommentManager.getAll())
-      .then(comments => this.setState({ comments: comments }))
-      
 
   addIngredient = ingredient =>
     IngredientManager.post(ingredient)
@@ -118,13 +137,13 @@ class ApplicationViews extends Component {
 
     IngredientManager.getAll().then(ingredients => this.setState({ ingredients: ingredients }))
 
-    CommentManager.getAll().then(comments => this.setState({ comments : comments }))
+    CommentManager.getAll().then(comments => this.setState({ comments: comments }))
 
   }
   render() {
     return (
       <React.Fragment>
-           <Route exact path="/GettingStarted" render={(props) => {
+        <Route exact path="/GettingStarted" render={(props) => {
           return <GettingStarted
           />
         }} />
@@ -174,7 +193,9 @@ class ApplicationViews extends Component {
             batches={this.state.batches}
             addBatch={this.addBatch}
             comments={this.state.comments}
-            addComment={this.addComment}
+            addBatchComments={this.addBatchComments}
+            storeComment={this.storeComment}
+            addBatchId={this.addBatchId}
           />
         }} />
 
@@ -201,9 +222,17 @@ class ApplicationViews extends Component {
           />
         }} />
 
+        <Route exact path="/batches/:batchId(\d+)" render={(props) => {
+          return <BatchDetail {...props}
+                  batches={this.state.batches}
+                  comments={this.state.comments}
+          />
+        }} />
+
         <Route exact path="/completedbatches" render={(props) => {
           return <CompletedBatchList {...props}
             batches={this.state.batches}
+            comments={this.state.comments}
           />
         }} />
 
