@@ -39,7 +39,7 @@ export default class Login extends Component {
   render() {
     return (
         <div className="landingPage">
-          <p className="pageTitle">Welcome to Brewster!</p>
+          <p className="pageTitle">Brewster</p>
           <div className="innerLandingPage">
             <div className="loginFormContainer">
               <form className="loginForm">

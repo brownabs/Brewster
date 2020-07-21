@@ -1,34 +1,50 @@
-@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Grwght@300;400&family=Yrsa&display=swap");
 
-@media (max-width: 600px) {
-    
-}
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400&family=Yrsa&display=swap");
 
+.landingPage {
+
+    background-color: rgb(228, 214, 91);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+   
+  .innerLandingPage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    border-radius: 10px;
+    /* height: 500px; */
+  }
 .loginForm {
-  margin: 20px;
-  padding: 10px;
-  border: 1px brown solid;
+  /* margin: 20px; */
+  /* padding: 5px; */
+  border: 20px rgb(0, 107, 247) solid;
   background-color: white;
   border-radius: 10px;
-  height: 200px;
-  width: 700px;
-  box-shadow: 10px 10px;
+  width: 800px;
+  box-shadow: 10px 10px  rgb(187, 97, 49);
+  padding-bottom: 20px;
 }
 
 .submit {
-  border: 1px brown solid;
+  border: 1px rgb(187, 97, 49) solid;
   border-radius: 10px;
   margin: 5px;
 }
 
 .password {
-  border: 2px brown solid;
+  border: 2px rgb(187, 97, 49) solid;
   border-radius: 10px;
   margin: 5px;
 }
 
 .username {
-  border: 2px brown solid;
+  border: 2px rgb(187, 97, 49) solid;
   border-radius: 10px;
   margin: 5px;
 }
@@ -38,11 +54,12 @@
 }
 
 .pageTitle {
-  font-size: 70px;
+  font-size: 150px;
   display: flex;
   justify-content: center;
   font-family: "Fredericka the Great", serif;
-  color: white;
+  color: black;
+  -webkit-text-stroke-width: 4px;
 }
 
 .signIn {
@@ -50,24 +67,6 @@
     justify-content: center;
     font-family: "Fredericka the Great", serif;
     font-size: 50px;
-    padding-bottom: 15px
-}
-
-.landingPage {
-  margin: 50px;
-  height: 500px;
-  width: 100%;
-  margin: 20px;
-  background-color: black;
-}
-
-.innerLandingPage {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-  border-radius: 10px;
-  background-color: hsl(49, 100%, 50%);
-  height: 300px;
-}
+    padding-bottom: 15px;
+    -webkit-text-stroke-width: 2px;
+} 
