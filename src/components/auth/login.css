@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .landingPage {
-    background-color: rgb(243, 218, 108);
+    background-color: rgb(164, 211, 250);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,13 +20,14 @@
   }
 
 .loginForm {
-  border: 20px rgb(75, 130, 202) solid;
+  border: 30px rgb(243, 218, 108) solid;
   background-color: white;
   border-radius: 10px;
   width: 800px;
-  box-shadow: 10px 10px  rgb(235, 130, 98);
+  height: 220px;
+  box-shadow: 12px 12px  white;
   padding-bottom: 20px;
-  padding-left: 30px;
+  padding-left: 5px;
 }
 
 .submit {
@@ -34,9 +35,12 @@
   border-radius: 10px;
   margin: 5px;
   font-family: 'Fredericka the Great', serif;
+  color: rgb(13, 87, 148); 
+  font-size: 20px;
 }
 
 .password {
+  height: 36px;
   border: 2px rgb(235, 130, 98) solid;
   border-radius: 10px;
   margin: 5px;
@@ -49,12 +53,15 @@
   margin: 5px;
   font-family: 'Fredericka the Great', serif;
   padding-left: 10px;
+  height: 36px;
 }
 
 .inputUser {
     font-size: 17px;
     font-family: 'Fredericka the Great', serif;
     padding-left: 2px;
+    color: rgb(13, 87, 148); 
+    font-size: 20px
 }
 
 .pageTitle {
@@ -62,16 +69,16 @@
   display: flex;
   justify-content: center;
   font-family: 'Fredericka the Great', serif;
-  color: rgb(75, 130, 202);
-  text-shadow: 6px 6px black;
-  -webkit-text-stroke-width: 5px;
+  color: rgb(13, 87, 148);
+  text-shadow: 9px 9px white;
+  -webkit-text-stroke-width: 2px;
 }
 
 .signIn {
     display: flex;
     justify-content: center;
     font-family: 'Fredericka the Great', serif;
-    color: black; 
-    font-size: 40px;
-    padding-bottom: 15px;
+    color: rgb(13, 87, 148); 
+    font-size: 60px;
+    padding-bottom: 7px;
 } 
