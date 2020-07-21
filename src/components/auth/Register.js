@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
-// import beer from './beerCartoon.jpg'
 import './Register.css'
 
   export default class Register extends Component {
