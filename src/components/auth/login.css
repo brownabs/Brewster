@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Grwght@300;400&family=Yrsa&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400&family=Yrsa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+html {
+  height: 100% !important;
+}
 .landingPage {
-
-    background-color: rgb(228, 214, 91);
+    background-color: rgb(243, 218, 108);
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 600px;
   }
    
   .innerLandingPage {
@@ -16,56 +18,60 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
     border-radius: 10px;
-    /* height: 500px; */
+    width: 100%
   }
 .loginForm {
-  /* margin: 20px; */
-  /* padding: 5px; */
-  border: 20px rgb(0, 107, 247) solid;
+  border: 20px rgb(148, 189, 243) solid;
   background-color: white;
   border-radius: 10px;
   width: 800px;
-  box-shadow: 10px 10px  rgb(187, 97, 49);
+  box-shadow: 10px 10px  rgb(235, 130, 98);
   padding-bottom: 20px;
 }
 
 .submit {
-  border: 1px rgb(187, 97, 49) solid;
+  border: 2px rgb(235, 130, 98) solid;
   border-radius: 10px;
   margin: 5px;
+  font-family: "Roboto", serif;
 }
 
 .password {
-  border: 2px rgb(187, 97, 49) solid;
+  border: 2px rgb(235, 130, 98) solid;
   border-radius: 10px;
   margin: 5px;
+  font-family: "Roboto", serif;
 }
 
 .username {
-  border: 2px rgb(187, 97, 49) solid;
+  border: 2px rgb(235, 130, 98) solid;
   border-radius: 10px;
   margin: 5px;
+  font-family: "Roboto", serif;
 }
 
 .inputUser {
     font-size: 17px;
+    font-family: "Roboto", serif;
 }
 
 .pageTitle {
-  font-size: 150px;
+  font-size: 175px;
   display: flex;
   justify-content: center;
-  font-family: "Fredericka the Great", serif;
-  color: black;
+  font-family: "Roboto", serif;
+  color: rgb(148, 189, 243);
+  text-shadow: 6px 6px black;
   -webkit-text-stroke-width: 4px;
 }
 
 .signIn {
     display: flex;
     justify-content: center;
-    font-family: "Fredericka the Great", serif;
+    font-family: "Roboto", serif;
+    color: rgb(148, 189, 243);
+    text-shadow: 3px 3px black;
     font-size: 50px;
     padding-bottom: 15px;
     -webkit-text-stroke-width: 2px;
