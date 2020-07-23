@@ -50,16 +50,6 @@ import './Register.css'
       <div className="registerLandingPage">
       <p className="registerPageTitle">Brewster</p>
       <div className="registerInnerLandingPage">
-        <div className="bubble x1"></div>
-        <div className="bubble x2"></div>
-        <div className="bubble x3"></div>
-        <div className="bubble x4"></div>
-        <div className="bubble x5"></div>
-        <div className="bubble x6"></div>
-        <div className="bubble x7"></div>
-        <div className="bubble x8"></div>
-        <div className="bubble x9"></div>
-        <div className="bubble x10"></div>
       <div className="registerFormContainer">
       <form className="registerForm">
         <h1 className="h3 mb-3 font-weight-normal">Register</h1>

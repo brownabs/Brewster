@@ -38,12 +38,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <main>
-        <div className="landingPage">
-          <p className="pageTitle">Brewster</p>
-          <div className="innerLandingPage">
+        <section className="landingPage">
+          <h1 className="pageTitle">Brewster</h1>
               <form className="loginForm">
                 <h1 className="signIn">Sign In</h1>
+                <div className="loginInfo">
                 <label htmlFor="inputUsername" className="inputUser">Username:</label>
                 <input
                   className="username"
@@ -75,11 +74,9 @@ export default class Login extends Component {
                     Register
                   </button>
                 </Link>
+                </div>
               </form>
-            </div>
-          </div>
-       
-        </main>
+              </section>       
     );
   }
 }

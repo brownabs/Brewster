@@ -1,9 +1,4 @@
 .registerForm {
-    margin: 20px;
-    padding: 10px;
-    border: 1px black solid;
-    border-radius: 10px;
-    box-shadow: 10px 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,10 +7,13 @@
 }
 
 .registerPageTitle {
-    font-size: 70px;
-    display: flex;
-    justify-content: center;
-    font-family: 'Fredericka the Great', serif;
+ font-size: 170px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Fredericka the Great', serif;
+  color: rgb(13, 87, 148);
+  text-shadow: 9px 9px white;
+  -webkit-text-stroke-width: 2px;
 
 }
  
@@ -28,11 +26,16 @@
      margin: 20px;
      border-radius: 10px;
  }
+
+ .registerForm {
+    border: 5px rgb(235, 130, 98) solid;
+ }
  
 .first_name {
     border: 1px black solid;
     border-radius: 10px;
-    margin: 5px
+    margin: 5px;
+    border: 5px rgb(235, 130, 98) solid;
 }
 
 .last_name {
