@@ -52,8 +52,7 @@ import './Register.css'
       <div className="registerInnerLandingPage">
       <div className="registerFormContainer">
       <form className="registerForm">
-        <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-        <label htmlFor="inputUsername">Username:</label>
+        <label htmlFor="inputUsername"></label>
         <input className="username"
           onChange={this.handleFieldChange}
           type="username"
@@ -62,7 +61,7 @@ import './Register.css'
           required=""
           autoFocus=""
         />
-        <label htmlFor="inputPassword">Password:</label>
+        <label htmlFor="inputPassword"></label>
         <input className="password"
           onChange={this.handleFieldChange}
           type="password"
@@ -70,7 +69,7 @@ import './Register.css'
           placeholder={`password`}
           required=""
         />
-           <label htmlFor="inputFirstName">First Name:</label>
+           <label htmlFor="inputFirstName"></label>
         <input className="first_name"
           onChange={this.handleFieldChange}
           type="name"
@@ -78,7 +77,7 @@ import './Register.css'
           placeholder={`first name`}
           required=""
         />
-           <label htmlFor="inputLastName">Last Name:</label>
+           <label htmlFor="inputLastName"></label>
         <input className="last_name"
           onChange={this.handleFieldChange}
           type="name"
@@ -86,7 +85,7 @@ import './Register.css'
           placeholder={`last name`}
           required=""
         />
-             <label htmlFor="inputEmail">Email:</label>
+             <label htmlFor="inputEmail"></label>
         <input className="email"
           onChange={this.handleFieldChange}
           type="email"
