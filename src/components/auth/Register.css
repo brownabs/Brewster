@@ -1,14 +1,20 @@
-.registerLandingPage {
+main {
+    background-color: #343a40;
+    height: 100vh;
+    min-width: 100%
+  }
+  
+  .registerLandingPage {
     justify-content: center;
     flex-direction: column;
     align-items: center;
       position: fixed;
       top: 20px;
-      left: 0;
-      width: 100%;
-      height: 95%;
+      left: 50px;
+      right: 50px;
+      bottom: 15px;
       background-color:  white;
-      border: 25px  rgb(1, 80, 199) solid;
+      border: 25px black solid;
       border-radius: 50px;
 }
 .registerForm {
@@ -28,11 +34,11 @@
     color: black;
     text-shadow: 10px 10px rgb(255, 212, 23);
     -webkit-text-stroke-width: 4px;
-
+    max-height: 200px;
 }
  
 .username, .password, .first_name, .last_name, .email {
-    border: 2px rgb(235, 130, 98) solid;
+    border: 3px rgb(255, 212, 23) solid;
     border-radius: 10px;
     margin: 5px;
     font-family: 'Fredericka the Great', serif;

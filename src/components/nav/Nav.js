@@ -15,7 +15,7 @@ class Nav extends Component {
   render() {
     return (
       <div className="outerNav">
-      <nav className="navbar  navbar-dark bg-dark fixed-top light-blue flex-md-nowrap p-0 shadow">
+      <nav className="navbar  navbar-dark bg-dark sticky-top light-blue flex-md-nowrap p-0 shadow">
         <ul className="nav nav-pills">
           <li className="nav-item">
             <Link className="nav-link text-white" to="/">

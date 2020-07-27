@@ -37,6 +37,7 @@ export default class Login extends Component {
 
   render() {
     return (
+      <main>
         <section className="landingPage">
           <h1 className="pageTitle">Brewster</h1>
               <form className="loginForm">
@@ -75,7 +76,8 @@ export default class Login extends Component {
                 </Link>
                 </div>
               </form>
-              </section>       
+              </section> 
+              </main>      
     );
   }
 }
