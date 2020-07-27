@@ -8,15 +8,23 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Fredericka the Great', serif;
-    font-size: 70px
+    font-size: 70px;
+    -webkit-text-stroke-width: .5px;
 }
 
 .recipeButton {
     display: flex;
     justify-content: center;
+    
 }
 .addRecipe {
-    border-radius: 5px;
+    border: 1px rgb(248, 231, 157) solid;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Fredericka the Great', serif;
+    color: black; 
+    font-size: 25px;
+    -webkit-text-stroke-width: .5px;
     box-shadow:  3px 3px 3px rgba(85, 16, 16, 0.7)
 }
 

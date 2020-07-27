@@ -47,6 +47,7 @@ import './Register.css'
 
   render() {
     return (
+      <main>
       <div className="registerLandingPage">
       <p className="registerPageTitle">Brewster</p>
       <div className="registerInnerLandingPage">
@@ -98,9 +99,9 @@ import './Register.css'
         </button>
       </form>
       </div>
-
           </div>
         </div>
+        </main>
     )
   }
 }

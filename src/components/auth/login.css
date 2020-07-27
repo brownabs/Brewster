@@ -1,8 +1,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-html {
-  background-color: black;
+main {
+  background-color: #343a40;
+  height: 100vh;
+  min-width: 100%
 }
 
 .landingPage {
@@ -10,15 +12,15 @@ html {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-    position: fixed;
+    position: fixed; 
     top: 20px;
-    left: 0;
-    width: 100%;
+    left: 50px;
+    right: 50px;
     background-color:  white;
-    border: 25px  rgb(1, 80, 199) solid;
+    border: 25px  black solid;
     border-radius: 50px;
-    padding-bottom: 40px;
-}
+    padding-bottom: 40px;  
+} 
 
 .pageTitle {
   font-size: 250px;
@@ -31,10 +33,10 @@ html {
 }
 
 .loginForm {
-  border: 20px rgb(1, 80, 199) solid;
+  border: 20px #343a40 solid;
   background-color: white;
   border-radius: 50px;
-  width: 100%;
+  width: 900px;
   box-shadow: 12px 12px black;
   width: 1020px;
 }
@@ -47,7 +49,7 @@ html {
 }
 
 .submit {
-  border: 2px rgb(235, 130, 98) solid;
+  border: 2px rgb(255, 212, 23) solid;
   border-radius: 10px;
   margin: 5px;
   font-family: 'Fredericka the Great', serif;
@@ -76,8 +78,13 @@ html {
 }
 
 .password, .username{
-  border: 2px rgb(235, 130, 98) solid;
+  border: 2px rgb(255, 212, 23) solid;
   border-radius: 10px;
   margin: 5px;
   font-family: 'Fredericka the Great', serif;
+}
+
+.submit:hover {
+  background-color: rgb(255, 212, 23); /* Green */
+  color: black;
 }
